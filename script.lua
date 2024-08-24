@@ -98,6 +98,27 @@ function AutoClaimHoneyDispenser()
     end
 end
 
+function AutoClaimFreeAntPassDispenser()
+	while _G.AutoClaimFreeAntPassDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimFreeRoboPassDispenser()
+	while _G.AutoClaimFreeRoboPassDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimFreeRoyalJellyDispenser()
+	while _G.AutoClaimFreeRoyalJellyDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
+        task.wait(0.2)
+    end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -419,11 +440,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Free Ant Pass Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
-			end
-		end
+		_G.AutoClaimFreeAntPassDispenser = Value
+		AutoClaimFreeAntPassDispenser()
 	end    
 })
 
@@ -431,23 +449,17 @@ Tab:AddToggle({
 	Name = "Auto Claim Free Robo Pass Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
-			end
-		end
+		_G.AutoClaimFreeRoboPassDispenser = Value
+		AutoClaimFreeRoboPassDispenser()
 	end    
 })
 
 Tab:AddToggle({
-	Name = "Free Royal Jelly Dispenser",
+	Name = "Auto Claim Free Royal Jelly Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
-			end
-		end
+		_G.AutoClaimFreeRoyalJellyDispenser = Value
+		AutoClaimFreeRoyalJellyDispenser()
 	end    
 })
 
