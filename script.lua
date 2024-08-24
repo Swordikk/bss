@@ -84,6 +84,20 @@ function AutoClaimStrawberryDispenser()
     end
 end
 
+function AutoClaimTreatDispenser()
+	while _G.AutoClaimTreatDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimHoneyDispenser()
+	while _G.AutoClaimHoneyDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
+        task.wait(0.2)
+    end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -387,11 +401,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Treat Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
-			end
-		end
+		_G.AutoClaimTreatDispenser = Value
+		AutoClaimTreatDispenser()
 	end    
 })
 
@@ -399,11 +410,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Honey Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
-			end
-		end
+		_G.AutoClaimHoneyDispenser = Value
+		AutoClaimHoneyDispenser()
 	end    
 })
 
