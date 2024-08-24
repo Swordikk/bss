@@ -66,56 +66,63 @@ end
 function AutoClaimGlueDispenser()
 	while _G.AutoClaimGlueDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimBlueberryDispenser()
 	while _G.AutoClaimBlueberryDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimStrawberryDispenser()
 	while _G.AutoClaimStrawberryDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimTreatDispenser()
 	while _G.AutoClaimTreatDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimHoneyDispenser()
 	while _G.AutoClaimHoneyDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimFreeAntPassDispenser()
 	while _G.AutoClaimFreeAntPassDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimFreeRoboPassDispenser()
-	while _G.AutoClaimFreeRoboPassDispenser == true do
+	while _G.AutoClaimFreeRoboPassDispenser= == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
     end
 end
 
 function AutoClaimFreeRoyalJellyDispenser()
 	while _G.AutoClaimFreeRoyalJellyDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
-        task.wait(0.2)
+		task.wait(0.2)
+    end
+end
+
+function AutoClaimGingerbreadHouse()
+	while _G.AutoClaimGingerbreadHouse == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House")
+		task.wait(0.2)
     end
 end
 
@@ -492,11 +499,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Gingerbread House",
 	Default = false,
 	Callback = function()
-		if Value == true then
-			while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House")
-			end
-		end
+		_G.AutoClaimGingerbreadHouse = Value
+		AutoClaimGingerbreadHouse()
 	end    
 })
 
