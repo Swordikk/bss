@@ -10,6 +10,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Functions --
+-- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
         for i,v in pairs(game:GetDescendants()) do
@@ -60,69 +61,6 @@ function AutoClaimCoconutDispenser()
 	while _G.AutoClaimCoconutDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
         task.wait(0.2)
-    end
-end
-
-function AutoClaimGlueDispenser()
-	while _G.AutoClaimGlueDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimBlueberryDispenser()
-	while _G.AutoClaimBlueberryDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimStrawberryDispenser()
-	while _G.AutoClaimStrawberryDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimTreatDispenser()
-	while _G.AutoClaimTreatDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimHoneyDispenser()
-	while _G.AutoClaimHoneyDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimFreeAntPassDispenser()
-	while _G.AutoClaimFreeAntPassDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimFreeRoboPassDispenser()
-	while _G.AutoClaimFreeRoboPassDispenser= == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimFreeRoyalJellyDispenser()
-	while _G.AutoClaimFreeRoyalJellyDispenser == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
-		task.wait(0.2)
-    end
-end
-
-function AutoClaimGingerbreadHouse()
-	while _G.AutoClaimGingerbreadHouse == true do
-        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House")
-		task.wait(0.2)
     end
 end
 
@@ -193,8 +131,11 @@ Tab:AddToggle({
 	Name = "Auto Dig",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoDig = Value
-		AutoDig()
+		if Value == true then
+			while wait(0.5) do
+				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
+			end
+		end
 	end
 })
 
@@ -402,8 +343,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Glue Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimGlueDispenser = Value
-		AutoClaimGlueDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
+			end
+		end
 	end    
 })
 
@@ -411,8 +355,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Blueberry Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimBlueberryDispenser = Value
-		AutoClaimBlueberryDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
+			end
+		end
 	end    
 })
 
@@ -420,8 +367,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Strawberry Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimStrawberryDispenser = Value
-		AutoClaimStrawberryDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
+			end
+		end
 	end    
 })
 
@@ -429,8 +379,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Treat Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimTreatDispenser = Value
-		AutoClaimTreatDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
+			end
+		end
 	end    
 })
 
@@ -438,8 +391,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Honey Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimHoneyDispenser = Value
-		AutoClaimHoneyDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
+			end
+		end
 	end    
 })
 
@@ -447,8 +403,11 @@ Tab:AddToggle({
 	Name = "Auto Claim Free Ant Pass Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimFreeAntPassDispenser = Value
-		AutoClaimFreeAntPassDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
+			end
+		end
 	end    
 })
 
@@ -456,17 +415,23 @@ Tab:AddToggle({
 	Name = "Auto Claim Free Robo Pass Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimFreeRoboPassDispenser = Value
-		AutoClaimFreeRoboPassDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
+			end
+		end
 	end    
 })
 
 Tab:AddToggle({
-	Name = "Auto Claim Free Royal Jelly Dispenser",
+	Name = "Free Royal Jelly Dispenser",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoClaimFreeRoyalJellyDispenser = Value
-		AutoClaimFreeRoyalJellyDispenser()
+		if Value == true then
+	        while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
+			end
+		end
 	end    
 })
 
@@ -491,16 +456,17 @@ Tab:AddButton({
   	end    
 })
 
-local Section = Tab:AddSection({
-	Name = "Beesmas"
-})
+Tab:AddLabel("Beesmas")
 
 Tab:AddToggle({
 	Name = "Auto Claim Gingerbread House",
 	Default = false,
 	Callback = function()
-		_G.AutoClaimGingerbreadHouse = Value
-		AutoClaimGingerbreadHouse()
+		if Value == true then
+			while wait(0.2) do
+				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House")
+			end
+		end
 	end    
 })
 
