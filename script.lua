@@ -70,6 +70,20 @@ function AutoClaimGlueDispenser()
     end
 end
 
+function AutoClaimBlueberryDispenser()
+	while _G.AutoClaimBlueberryDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimStrawberryDispenser()
+	while _G.AutoClaimStrawberryDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
+        task.wait(0.2)
+    end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -355,11 +369,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Blueberry Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
-			end
-		end
+		_G.AutoClaimBlueberryDispenser = Value
+		AutoClaimBlueberryDispenser()
 	end    
 })
 
@@ -367,11 +378,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Strawberry Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
-			end
-		end
+		_G.AutoClaimStrawberryDispenser = Value
+		AutoClaimStrawberryDispenser()
 	end    
 })
 
