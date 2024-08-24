@@ -445,7 +445,6 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.AutoClaimFreeAntPassDispenser = Value
 		AutoClaimFreeAntPassDispenser()
-		end
 	end    
 })
 
@@ -488,7 +487,9 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddLabel("Beesmas")
+local Section = Tab:AddSection({
+	Name = "Beesmas"
+})
 
 Tab:AddToggle({
 	Name = "Auto Claim Gingerbread House",
