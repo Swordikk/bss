@@ -183,11 +183,11 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "     MAIN                                          CREDITS"
+	Name = "     MAIN                                                  CREDITS"
 })
 
 local Section = Tab:AddSection({
-	Name = "     Thanks you for using my script!                                          My Discord: swordik_"
+	Name = "     Thanks you for using my script!                       My Discord: swordik_"
 })
 
 local Section = Tab:AddSection({
