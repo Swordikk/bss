@@ -10,6 +10,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Functions --
+-- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
         for i,v in pairs(game:GetDescendants()) do
@@ -23,8 +24,44 @@ end
 
 function AutoDig()
 	while _G.AutoDig == true do
-
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
+        task.wait(0.2)
 	end
+end
+
+function AutoClaimAutoWealthClock()
+    while _G.AutoClaimAutoWealthClock == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimBlueFieldBooster()
+	while _G.AutoClaimBlueFieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blue Field Booster")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimRedFieldBooster()
+	while _G.AutoClaimRedFieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Red Field Booster")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimFieldBooster()
+    while _G.AutoClaimFieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Field Booster")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimCoconutDispenser()
+	while _G.AutoClaimCoconutDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
+        task.wait(0.2)
+    end
 end
 
 -- Local Tables  --
@@ -261,11 +298,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Auto Wealth Clock",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			while wait(0.2) do
-	        	game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
-			end
-		end
+		_G.AutoClaimAutoWealthClock = Value
+		AutoClaimAutoWealthClock()
 	end    
 })
 
@@ -273,11 +307,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Blue Field Booster",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blue Field Booster")
-			end
-		end
+		_G.AutoClaimBlueFieldBooster = Value
+		AutoClaimBlueFieldBooster()
 	end    
 })
 
@@ -285,11 +316,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Red Field Booster",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			while wait(0.2) do
-	        	game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Red Field Booster")
-			end
-		end
+		_G.AutoClaimRedFieldBooster = Value
+		AutoClaimRedFieldBooster()
 	end    
 })
 
@@ -297,11 +325,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Field Booster",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Field Booster")
-			end
-		end
+		_G.AutoClaimFieldBooster = Value
+		AutoClaimFieldBooster()
 	end    
 })
 
@@ -309,11 +334,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Coconut Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
-			end
-		end
+		_G.AutoClaimCoconutDispenser = Value
+		AutoClaimCoconutDispenser()
 	end    
 })
 
