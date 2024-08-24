@@ -10,7 +10,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Functions --
--- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
         for i,v in pairs(game:GetDescendants()) do
@@ -60,6 +59,13 @@ end
 function AutoClaimCoconutDispenser()
 	while _G.AutoClaimCoconutDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
+        task.wait(0.2)
+    end
+end
+
+function AutoClaimGlueDispenser()
+	while _G.AutoClaimGlueDispenser == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
         task.wait(0.2)
     end
 end
@@ -131,11 +137,8 @@ Tab:AddToggle({
 	Name = "Auto Dig",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			while wait(0.5) do
-				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
-			end
-		end
+		_G.AutoDig = Value
+		AutoDig()
 	end
 })
 
@@ -343,11 +346,8 @@ Tab:AddToggle({
 	Name = "Auto Claim Glue Dispenser",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-	        while wait(0.2) do
-				game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
-			end
-		end
+		_G.AutoClaimGlueDispenser = Value
+		AutoClaimGlueDispenser()
 	end    
 })
 
@@ -456,7 +456,9 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddLabel("Beesmas")
+local Section = Tab:AddSection({
+	Name = "Beesmas"
+})
 
 Tab:AddToggle({
 	Name = "Auto Claim Gingerbread House",
