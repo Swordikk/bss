@@ -183,7 +183,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "     MAIN                                                  CREDITS"
+	Name = "     MAIN                                                              CREDITS"
 })
 
 local Section = Tab:AddSection({
