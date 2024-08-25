@@ -217,7 +217,7 @@ local Section = Tab:AddSection({
 })
 
 local Section = Tab:AddSection({
-	Name = "     Thanks you for using my script!                       My Discord: swordik_"
+	Name = "     Thanks you for using my script!                        My Discord: swordik_"
 })
 
 local Section = Tab:AddSection({
@@ -228,7 +228,7 @@ local Section = Tab:AddSection({
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
@@ -244,7 +244,7 @@ Tab:AddToggle({
 -- Tab Teleports --
 local Tab = Window:MakeTab({
 	Name = "Teleports",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
@@ -392,7 +392,7 @@ Tab:AddButton({
 -- Tab Dispensers --
 local Tab = Window:MakeTab({
 	Name = "Dispensers",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
@@ -568,28 +568,28 @@ Tab:AddToggle({
 -- Tab Combat --
 local Tab = Window:MakeTab({
 	Name = "Combat",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
 	Name = "Auto Quest",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
 -- Tab Auto Planters --
 local Tab = Window:MakeTab({
 	Name = "Auto Planters",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
 -- Tab Misc --
 local Tab = Window:MakeTab({
 	Name = "Misc",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
@@ -647,14 +647,14 @@ Tab:AddDropdown({
 -- Tab Themes --
 local Tab = Window:MakeTab({
 	Name = "Themes",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
 -- Tab Configs --
 local Tab = Window:MakeTab({
 	Name = "Configs",
-	Icon = "rbxassetid://4483345998",
+	Icon = "",
 	PremiumOnly = false
 })
 
