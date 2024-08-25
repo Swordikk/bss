@@ -213,7 +213,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "     MAIN                                                              											CREDITS"
+	Name = "     MAIN                                                              			CREDITS"
 })
 
 local Section = Tab:AddSection({
@@ -228,7 +228,7 @@ local Section = Tab:AddSection({
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
-	Icon = "rbxassetid://4483345998", 
+	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
