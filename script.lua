@@ -128,22 +128,7 @@ end
 
 function FindallStickers()
 	while _G.FindallStickers == true do
-        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(100)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(103)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(104)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(105)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(106)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(107)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(108)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(109)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(110)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(111)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(112)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(113)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(114)
-		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(115)
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(unpack(Stickers))
         task.wait(0.2)
     end
 end
@@ -197,6 +182,29 @@ local HoneyMask = {
     }
 }
 
+local Stickers = {
+	[1] = 100,
+	[2] = 101,
+	[3] = 102,
+	[4] = 103,
+	[5] = 104,
+	[6] = 105,
+	[7] = 106,
+	[8] = 107,
+	[9] = 108,
+	[10] = 109,
+	[11] = 110,
+	[12] = 111,
+	[13] = 112,
+	[14] = 113,
+	[15] = 114,
+	[16] = 115,
+	[17] = 116,
+	[18] = 117,
+	[19] = 118,
+	[20] = 119
+}
+
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -205,7 +213,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "     MAIN                                                              CREDITS"
+	Name = "     MAIN                                                              											CREDITS"
 })
 
 local Section = Tab:AddSection({
