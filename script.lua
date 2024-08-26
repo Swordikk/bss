@@ -225,7 +225,7 @@ local Section = Tab:AddSection({
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4483364237",
 	PremiumOnly = false
 })
 
