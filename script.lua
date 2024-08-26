@@ -205,7 +205,7 @@ local HoneyMask = {
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4370345144", 
 	PremiumOnly = false
 })
 
@@ -225,7 +225,7 @@ local Section = Tab:AddSection({
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
-	Icon = "",
+	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
@@ -241,7 +241,7 @@ Tab:AddToggle({
 -- Tab Teleports --
 local Tab = Window:MakeTab({
 	Name = "Teleports",
-	Icon = "",
+	Icon = "rbxassetid://4384402413",
 	PremiumOnly = false
 })
 
@@ -389,7 +389,7 @@ Tab:AddButton({
 -- Tab Dispensers --
 local Tab = Window:MakeTab({
 	Name = "Dispensers",
-	Icon = "",
+	Icon = "rbxassetid://4335482575",
 	PremiumOnly = false
 })
 
@@ -565,28 +565,28 @@ Tab:AddToggle({
 -- Tab Combat --
 local Tab = Window:MakeTab({
 	Name = "Combat",
-	Icon = "",
+	Icon = "rbxassetid://4370186570",
 	PremiumOnly = false
 })
 
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
 	Name = "Auto Quest",
-	Icon = "",
+	Icon = "rbxassetid://4335484884",
 	PremiumOnly = false
 })
 
 -- Tab Auto Planters --
 local Tab = Window:MakeTab({
 	Name = "Auto Planters",
-	Icon = "",
+	Icon = "rbxassetid://4335480353",
 	PremiumOnly = false
 })
 
 -- Tab Misc --
 local Tab = Window:MakeTab({
 	Name = "Misc",
-	Icon = "",
+	Icon = "rbxassetid://4483362748",
 	PremiumOnly = false
 })
 
@@ -644,14 +644,28 @@ Tab:AddDropdown({
 -- Tab Themes --
 local Tab = Window:MakeTab({
 	Name = "Themes",
-	Icon = "",
+	Icon = "rbxassetid://4335483762", 
+	PremiumOnly = false
+})
+
+-- Tab Themes --
+local Tab = Window:MakeTab({
+	Name = "Visuals",
+	Icon = "rbxassetid://3610254229",
 	PremiumOnly = false
 })
 
 -- Tab Configs --
 local Tab = Window:MakeTab({
 	Name = "Configs",
-	Icon = "",
+	Icon = "rbxassetid://3610247188",
+	PremiumOnly = false
+})
+
+-- Tab Setthings --
+local Tab = Window:MakeTab({
+	Name = "Setthings",
+	Icon = "rbxassetid://4483345737",
 	PremiumOnly = false
 })
 
