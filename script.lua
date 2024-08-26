@@ -10,6 +10,16 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Functions --
+function Part1()
+	local Part = Instance.new("Part", game:GetService("Workspace"))
+	Part.Position = Vector3.new(-113.4353256225586, 5.385427474975586, 272.67962646484375)
+	Part.Size = Vector3.new(1, 1, 1)
+	Part.Name = Part1
+	Part.Transparency = 0
+	Part.CanCollide = false
+	Part.Anchored = true
+end
+
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
         for i,v in pairs(game:GetDescendants()) do
@@ -156,6 +166,7 @@ end
 -- Local Tables  --
 local PanikPas = game:GetService("Workspace").PanikPas
 local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
+local Part = Instance.new("Part", workspace)
 
 local DemonMask = {
     [1] = "Equip",
@@ -246,9 +257,11 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
+			Part1()
+			PanikPas.Humanoid:MoveTo(game:GetService("Workspace").Part1.Position)
 			PanikPas.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
 		end
-	end    
+	end
 })
 
 Tab:AddToggle({
