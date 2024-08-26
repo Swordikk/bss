@@ -62,7 +62,7 @@ local function move(finishPos)
 	end
 end
 
-move(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375)) -- Напишите свою позицию или активируйте цикл с постоянным обновлением маршрута (например для следования за игроком)
+move(Vector3.new(-328.670013, 65.5, -187.348999)) -- Напишите свою позицию или активируйте цикл с постоянным обновлением маршрута (например для следования за игроком)
 end
 
 function AutoFarmSnowFlakes()
@@ -289,7 +289,11 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			AutoFarm = true
+		else
+			AutoFarm = false
+		end
 	end
 })
 
