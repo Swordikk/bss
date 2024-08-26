@@ -10,14 +10,59 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Functions --
-function Part1()
-	local Part = Instance.new("Part", game:GetService("Workspace"))
-	Part.Position = Vector3.new(-113.4353256225586, 5.385427474975586, 272.67962646484375)
-	Part.Size = Vector3.new(2, 2, 2)
-	Part.Name = "Part1"
-	Part.Transparency = 0
-	Part.CanCollide = false
-	Part.Anchored = true
+function PathPineTreeForest()
+wait(1)
+local PathfindingService = game:GetService("PathfindingService")
+local Path = PathfindingService:CreatePath({
+	AgentCanJump = false
+})
+local PanikPas = game:GetService("Workspace").PanikPas
+local HumanoidRootPart = PanikPas.HumanoidRootPart
+
+HumanoidRootPart:SetNetworkOwner()
+
+local Humanoid = PanikPas.Humanoid
+
+local waypoints
+local waypointIndex
+
+local reachedConnection
+local blockedConnection
+
+local function move(finishPos)
+	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
+	if Path.Status == Enum.PathStatus.Success then
+		waypoints = Path:GetWaypoints()
+		waypointIndex = 2
+		if not blockedConnection then
+			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
+				if blockedWaypointIndex > waypointIndex then
+					blockedConnection:Disconnect()
+					blockedConnection = nil
+					move(finishPos)
+				end
+			end)
+		end
+		if not reachedConnection then
+			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
+				if reached and waypointIndex < #waypoints then
+					waypointIndex += 1
+					Humanoid:MoveTo(waypoints[waypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					reachedConnection = nil
+					if blockedConnection then
+						blockedConnection:Disconnect()
+						blockedConnection = nil
+					end
+				end
+			end)
+		end
+		Humanoid:MoveTo(waypoints[waypointIndex].Position)
+	end
+end
+
+move(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375)) -- Напишите свою позицию или активируйте цикл с постоянным обновлением маршрута (например для следования за игроком)
 end
 
 function AutoFarmSnowFlakes()
@@ -164,9 +209,6 @@ function FindallStickers()
 end
 
 -- Local Tables  --
-local PanikPas = game:GetService("Workspace").PanikPas
-local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
-local Part = Instance.new("Part", workspace)
 
 local DemonMask = {
     [1] = "Equip",
@@ -257,9 +299,7 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			Part1()
-			PanikPas.Humanoid:MoveTo(game:GetService("Workspace").Part1.Position)
-			PanikPas.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+			PathPineTreeForest()
 		end
 	end
 })
