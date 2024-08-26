@@ -13,8 +13,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 function Part1()
 	local Part = Instance.new("Part", game:GetService("Workspace"))
 	Part.Position = Vector3.new(-113.4353256225586, 5.385427474975586, 272.67962646484375)
-	Part.Size = Vector3.new(1, 1, 1)
-	Part.Name = Part1
+	Part.Size = Vector3.new(2, 2, 2)
+	Part.Name = "Part1"
 	Part.Transparency = 0
 	Part.CanCollide = false
 	Part.Anchored = true
