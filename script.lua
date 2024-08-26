@@ -154,6 +154,9 @@ function FindallStickers()
 end
 
 -- Local Tables  --
+local PanikPas = game:GetService("Workspace").PanikPas
+local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
+
 local DemonMask = {
     [1] = "Equip",
     [2] = {
@@ -227,6 +230,25 @@ local Tab = Window:MakeTab({
 	Name = "Farming",
 	Icon = "rbxassetid://4483364237",
 	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddDropdown({
+	Name = "Select field",
+	Default = "...",
+	Options = {"Pine Tree Forest"},
+	Callback = function(Value)
+		if Value == "Pine Tree Forest" then
+			PanikPas.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+		end
+	end    
 })
 
 Tab:AddToggle({
