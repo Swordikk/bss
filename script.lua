@@ -153,6 +153,10 @@ function FindallStickers()
     end
 end
 
+function PathPineTreeForest()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -202,54 +206,6 @@ local HoneyMask = {
     }
 }
 
-local PathfindingService = game:GetService("PathfindingService")
-local Path = PathfindingService:CreatePath({
-	AgentCanJump = false
-})
-local PanikPas = game:GetService("Workspace").PanikPas
-local HumanoidRootPart = PanikPas.HumanoidRootPart
-
-local Humanoid = PanikPas.Humanoid
-
-local waypoints
-local waypointIndex
-
-local reachedConnection
-local blockedConnection
-
-local function move(finishPos)
-	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
-	if Path.Status == Enum.PathStatus.Success then
-		waypoints = Path:GetWaypoints()
-		waypointIndex = 2
-		if not blockedConnection then
-			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
-				if blockedWaypointIndex > waypointIndex then
-					blockedConnection:Disconnect()
-					blockedConnection = nil
-					move(finishPos)
-				end
-			end)
-		end
-		if not reachedConnection then
-			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
-				if reached and waypointIndex < #waypoints then
-					waypointIndex += 1
-					Humanoid:MoveTo(waypoints[waypointIndex].Position)
-				else
-					reachedConnection:Disconnect()
-					reachedConnection = nil
-					if blockedConnection then
-						blockedConnection:Disconnect()
-						blockedConnection = nil
-					end
-				end
-			end)
-		end
-		Humanoid:MoveTo(waypoints[waypointIndex].Position)
-	end
-end
-
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -290,7 +246,7 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			move(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+			PathPineTreeForest()
 		end
 	end    
 })
