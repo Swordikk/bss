@@ -10,7 +10,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
 -- Auto Farm --
-local PathfindingService = game:GetService("PathfindingService")
+function PathPTF()
+	local PathfindingService = game:GetService("PathfindingService")
 local Path = PathfindingService:CreatePath({
 	AgentCanJump = false
 })
@@ -58,6 +59,7 @@ local function move(finishPos)
 		end
 		Humanoid:MoveTo(waypoints[waypointIndex].Position)
 	end
+end
 end
 -- Functions --
 
@@ -297,6 +299,8 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
+			wait(1)
+			PathPTF()
 			move(Vector3.new(-328.670013, 65.5, -187.348999))
 		end
 	end    
