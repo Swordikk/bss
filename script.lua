@@ -222,57 +222,6 @@ local Section = Tab:AddSection({
 	Name = "     Version: v1.0.0"
 })
 
--- PathfindingService --
-local PathfindingService = game:GetService("PathfindingService")
-local Path = PathfindingService:CreatePath({
-	AgentCanJump = false
-})
-local PanikPas = game:GetService("Workspace").PanikPas
-local HumanoidRootPart = PanikPas.HumanoidRootPart
-
-HumanoidRootPart:SetNetworkOwner()
-
-local Humanoid = PanikPas.Humanoid
-
-local waypoints
-local waypointIndex
-
-local reachedConnection
-local blockedConnection
-
-local function move(finishPos)
-	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
-	if Path.Status == Enum.PathStatus.Success then
-		waypoints = Path:GetWaypoints()
-		waypointIndex = 2
-		if not blockedConnection then
-			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
-				if blockedWaypointIndex > waypointIndex then
-					blockedConnection:Disconnect()
-					blockedConnection = nil
-					move(finishPos)
-				end
-			end)
-		end
-		if not reachedConnection then
-			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
-				if reached and waypointIndex < #waypoints then
-					waypointIndex += 1
-					Humanoid:MoveTo(waypoints[waypointIndex].Position)
-				else
-					reachedConnection:Disconnect()
-					reachedConnection = nil
-					if blockedConnection then
-						blockedConnection:Disconnect()
-						blockedConnection = nil
-					end
-				end
-			end)
-		end
-		Humanoid:MoveTo(waypoints[waypointIndex].Position)
-	end
-end
-
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
@@ -738,5 +687,56 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345737",
 	PremiumOnly = false
 })
+
+-- PathfindingService --
+local PathfindingService = game:GetService("PathfindingService")
+local Path = PathfindingService:CreatePath({
+	AgentCanJump = false
+})
+local PanikPas = game:GetService("Workspace").PanikPas
+local HumanoidRootPart = PanikPas.HumanoidRootPart
+
+HumanoidRootPart:SetNetworkOwner()
+
+local Humanoid = PanikPas.Humanoid
+
+local waypoints
+local waypointIndex
+
+local reachedConnection
+local blockedConnection
+
+local function move(finishPos)
+	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
+	if Path.Status == Enum.PathStatus.Success then
+		waypoints = Path:GetWaypoints()
+		waypointIndex = 2
+		if not blockedConnection then
+			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
+				if blockedWaypointIndex > waypointIndex then
+					blockedConnection:Disconnect()
+					blockedConnection = nil
+					move(finishPos)
+				end
+			end)
+		end
+		if not reachedConnection then
+			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
+				if reached and waypointIndex < #waypoints then
+					waypointIndex += 1
+					Humanoid:MoveTo(waypoints[waypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					reachedConnection = nil
+					if blockedConnection then
+						blockedConnection:Disconnect()
+						blockedConnection = nil
+					end
+				end
+			end)
+		end
+		Humanoid:MoveTo(waypoints[waypointIndex].Position)
+	end
+end
 
 OrionLib:Init()
