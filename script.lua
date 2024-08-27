@@ -128,6 +128,7 @@ end
 
 function FindallStickers()
 	while _G.FindallStickers == true do
+		task.wait(0.2)
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(100)
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
@@ -149,11 +150,34 @@ function FindallStickers()
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
-		task.wait(0.2)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(121)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(122)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(123)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(124)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(125)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(126)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(127)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(128)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(129)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(130)
     end
 end
 
 function PathPineTreeForest()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
+	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
 end
 
