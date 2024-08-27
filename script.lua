@@ -9,60 +9,58 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(5)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
--- Functions ---
-function PathPineTreeForest()
-	local PathfindingService = game:GetService("PathfindingService")
-	local Path = PathfindingService:CreatePath({
-		AgentCanJump = false
-	})
-	local PanikPas = game:GetService("Workspace").PanikPas
-	local HumanoidRootPart = PanikPas.HumanoidRootPart
+-- PathfindingService --
+local PathfindingService = game:GetService("PathfindingService")
+local Path = PathfindingService:CreatePath({
+	AgentCanJump = false
+})
+local PanikPas = game:GetService("Workspace").PanikPas
+local HumanoidRootPart = PanikPas.HumanoidRootPart
 
-	HumanoidRootPart:SetNetworkOwner()
+HumanoidRootPart:SetNetworkOwner()
 
-	local Humanoid = PanikPas.Humanoid
+local Humanoid = PanikPas.Humanoid
 
-	local waypoints
-	local waypointIndex
+local waypoints
+local waypointIndex
 
-	local reachedConnection
-	local blockedConnection
+local reachedConnection
+local blockedConnection
 
-	local function move(finishPos)
-		Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
-		if Path.Status == Enum.PathStatus.Success then
-			waypoints = Path:GetWaypoints()
-			waypointIndex = 2
-			if not blockedConnection then
-				blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
-					if blockedWaypointIndex > waypointIndex then
+local function move(finishPos)
+	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
+	if Path.Status == Enum.PathStatus.Success then
+		waypoints = Path:GetWaypoints()
+		waypointIndex = 2
+		if not blockedConnection then
+			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
+				if blockedWaypointIndex > waypointIndex then
+					blockedConnection:Disconnect()
+					blockedConnection = nil
+					move(finishPos)
+				end
+			end)
+		end
+		if not reachedConnection then
+			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
+				if reached and waypointIndex < #waypoints then
+					waypointIndex += 1
+					Humanoid:MoveTo(waypoints[waypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					reachedConnection = nil
+					if blockedConnection then
 						blockedConnection:Disconnect()
 						blockedConnection = nil
-						move(finishPos)
 					end
-				end)
-			end
-			if not reachedConnection then
-				reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
-					if reached and waypointIndex < #waypoints then
-						waypointIndex += 1
-						Humanoid:MoveTo(waypoints[waypointIndex].Position)
-					else
-						reachedConnection:Disconnect()
-						reachedConnection = nil
-						if blockedConnection then
-							blockedConnection:Disconnect()
-							blockedConnection = nil
-						end
-					end
-				end)
-			end
-			Humanoid:MoveTo(waypoints[waypointIndex].Position)
+				end
+			end)
 		end
+		Humanoid:MoveTo(waypoints[waypointIndex].Position)
 	end
-
-	move(Vector3.new(-328.670013, 65.5, -187.348999)) -- Напишите свою позицию или активируйте цикл с постоянным обновлением маршрута (например для следования за игроком)
 end
+
+-- Functions --
 
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
@@ -288,11 +286,7 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			AutoFarm = true
-		else
-			AutoFarm = false
-		end
+		
 	end
 })
 
@@ -302,7 +296,7 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			PathPineTreeForest()
+			move(Vector3.new(-328.670013, 65.5, -187.348999))
 		end
 	end
 })
