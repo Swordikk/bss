@@ -11,7 +11,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 
 -- Auto Farm --
 function PathPTF()
-	local PathfindingService = game:GetService("PathfindingService")
+local PathfindingService = game:GetService("PathfindingService")
 local Path = PathfindingService:CreatePath({
 	AgentCanJump = false
 })
