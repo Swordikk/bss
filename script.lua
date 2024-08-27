@@ -164,21 +164,7 @@ function FindallStickers()
 end
 
 function PathPineTreeForest()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
-	game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-	game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+
 end
 
 -- Local Tables  --
@@ -230,6 +216,56 @@ local HoneyMask = {
     }
 }
 
+local PathfindingService = game:GetService("PathfindingService")
+local Path = PathfindingService:CreatePath({
+	AgentCanJump = false
+})
+local LocalPlayer = game.Players.LocalPlayer
+local HumanoidRootPart = LocalPlayer.Character.HumanoidRootPart
+
+-- HumanoidRootPart:SetNetworkOwner()
+
+local Humanoid = LocalPlayer.Character.Humanoid
+
+local waypoints
+local waypointIndex
+
+local reachedConnection
+local blockedConnection
+
+local function move(finishPos)
+	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
+	if Path.Status == Enum.PathStatus.Success then
+		waypoints = Path:GetWaypoints()
+		waypointIndex = 2
+		if not blockedConnection then
+			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
+				if blockedWaypointIndex > waypointIndex then
+					blockedConnection:Disconnect()
+					blockedConnection = nil
+					move(finishPos)
+				end
+			end)
+		end
+		if not reachedConnection then
+			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
+				if reached and waypointIndex < #waypoints then
+					waypointIndex += 1
+					Humanoid:MoveTo(waypoints[waypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					reachedConnection = nil
+					if blockedConnection then
+						blockedConnection:Disconnect()
+						blockedConnection = nil
+					end
+				end
+			end)
+		end
+		Humanoid:MoveTo(waypoints[waypointIndex].Position)
+	end
+end
+
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -274,9 +310,7 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			if AutoFarm == true then
-				PathPineTreeForest()
-			end
+			move(Vector3.new(-328.670013, 65.5, -187.348999))
 		end
 	end    
 })
