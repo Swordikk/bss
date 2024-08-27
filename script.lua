@@ -9,10 +9,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(5)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
-HumanoidRootPart:SetNetworkOwner()
-
 local PanikPas = game:GetService("Workspace").PanikPas
-local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
+local Humanoid = PanikPas.Humanoid
+local HumanoidRootPart = PanikPas.HumanoidRootPart
+
+HumanoidRootPart:SetNetworkOwner()
 
 -- Functions --
 function AutoFarmSnowFlakes()
