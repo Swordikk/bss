@@ -155,9 +155,6 @@ function FindallStickers()
 end
 
 -- Local Tables  --
-local PanikPas = game:GetService("Workspace").PanikPas
-local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
-
 local DemonMask = {
     [1] = "Equip",
     [2] = {
