@@ -260,7 +260,11 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			AutoFarm = true
+		else
+			AutoFarm = false
+		end
 	end
 })
 
@@ -270,7 +274,9 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			PathPineTreeForest()
+			if AutoFarm == true then
+				PathPineTreeForest()
+			end
 		end
 	end    
 })
