@@ -21,7 +21,7 @@ function AutoFarmSnowFlakes()
     end
 end
 
-function AutoFarm()
+function Selectfield()
 	if _G.Selectfield == "Pepper Patch" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 	elseif _G.Selectfield == "Rose Field" then
@@ -283,7 +283,7 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		
+		Selectfield()
 	end
 })
 
