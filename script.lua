@@ -22,7 +22,7 @@ function AutoFarmSnowFlakes()
 end
 
 function AutoFarm()
-	while _G.AutoFarmSnowFlakes == true do
+	while _G.AutoFarm == true do
 		for i,v in pairs(game:GetDescendants()) do
 			if v.Name == "C" then
 				-- game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new())
@@ -297,7 +297,7 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(0.5)
-			_G.AutoFarmSnowFlakes = Value
+			_G.AutoFarm = Value
 		end
 	end
 })
