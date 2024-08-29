@@ -307,7 +307,9 @@ Tab:AddDropdown({
 	Default = "...",
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
-		_G.AutoFarm = Value
+		if Value == "Pine Tree Forest" do
+			_G.AutoFarm = Value
+		end
 	end    
 })
 
