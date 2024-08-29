@@ -329,7 +329,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoSplinker = Value
-		AutoSplinker()
 	end
 })
 
