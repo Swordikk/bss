@@ -68,11 +68,6 @@ function AutoDig()
 	end
 end
 
-function AutoSplinker()
-	game.Players.LocalPlayer.Character.Humanoid.Jump = true
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
-end
-
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
@@ -284,15 +279,18 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		Selectfield()
-		wait(1)
-		AutoSplinker()
+		if _G.AutoSplinker == true then
+			game.Players.LocalPlayer.Character.Humanoid.Jump = true
+			wait(1)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
+		end
 	end
 })
 
 Tab:AddDropdown({
 	Name = "Select field",
 	Default = "...",
-	Options = {"Pine Tree Forest"},
+	Options = {"Pepper Patch", "Rose Field", "Stump Field", "Blue Flower Field", "Bamboo Field", "Spider Field", "Pine Tree Forest", "Mountain Top Field", "Strawberry Field", "Cactus Field", "Coconut Field", "Mushroom Field", "Pumpkin Patch", "Clover Field", "Pineapple Patch", "Dandelion Field", "Sunflower Field"},
 	Callback = function(Value)
 		_G.Selectfield = Value
 	end    
