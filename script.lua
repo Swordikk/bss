@@ -21,6 +21,17 @@ function AutoFarmSnowFlakes()
     end
 end
 
+function AutoFarm()
+	while _G.AutoFarmSnowFlakes == true do
+		for i,v in pairs(game:GetDescendants()) do
+			if v.Name == "C" then
+				-- game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new())
+				-- game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+			end
+		end
+	end
+end
+
 function AutoDig()
 	while _G.AutoDig == true do
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
@@ -154,6 +165,9 @@ function FindallStickers()
 end
 
 -- Local Tables  --
+local PanikPas = game:GetService("Workspace").PanikPas
+local Humanoid = game:GetService("Workspace").PanikPas.Humanoid
+
 local DemonMask = {
     [1] = "Equip",
     [2] = {
@@ -276,12 +290,14 @@ Tab:AddToggle({
 			elseif _G.Selectfield == "Sunflower Field" then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 			end
-			wait(1)
+			wait(0.5)
 			if _G.AutoSplinker == true then
 				game.Players.LocalPlayer.Character.Humanoid.Jump = true
 				wait(0.5)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
+			wait(0.5)
+			_G.AutoFarmSnowFlakes = Value
 		end
 	end
 })
