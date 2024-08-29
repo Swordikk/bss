@@ -25,8 +25,8 @@ function AutoFarm()
 	while _G.AutoFarm == true do
 		for i,v in pairs(game:GetDescendants()) do
 			if v.Name == "C" then
-				-- game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new())
-				-- game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(game:GetService("Workspace").Collectibles.C.Position))
+				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 			end
 		end
 	end
@@ -298,6 +298,7 @@ Tab:AddToggle({
 			end
 			wait(0.5)
 			_G.AutoFarm = Value
+			AutoFarm()
 		end
 	end
 })
