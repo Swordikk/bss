@@ -284,6 +284,8 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		Selectfield()
+		wait(1)
+		AutoSplinker()
 	end
 })
 
