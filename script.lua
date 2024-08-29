@@ -68,6 +68,14 @@ function AutoDig()
 	end
 end
 
+function AutoSplinker()
+	if _G.AutoSplinker == true do
+		game.Players.LocalPlayer.Character.Humanoid.Jump = true
+		wait(0.7)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
+	end
+end
+
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
@@ -203,11 +211,13 @@ function FindallStickers()
     end
 end
 
-function PathPineTreeForest()
-
-end
-
 -- Local Tables  --
+local AutoSplinker = {
+	[1] = {
+		["Name"] = "Splinkler Builder"
+	}
+}
+
 local DemonMask = {
     [1] = "Equip",
     [2] = {
@@ -288,6 +298,8 @@ Tab:AddToggle({
 	Callback = function(Value)
 		if Value == true then
 			AutoFarm()
+			wait(0.5)
+			AutoSplinker()
 		end
 	end
 })
@@ -309,6 +321,15 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.AutoDig = Value
 		AutoDig()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Splinker",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoSplinker = Value
+		AutoSplinker()
 	end
 })
 
