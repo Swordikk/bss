@@ -279,6 +279,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		Selectfield()
+		wait(1)
 		if _G.AutoSplinker == true then
 			game.Players.LocalPlayer.Character.Humanoid.Jump = true
 			wait(1)
