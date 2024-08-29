@@ -9,7 +9,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimH
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(5)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
 
--- Functions --
+-- Functions ---
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
         for i,v in pairs(game:GetDescendants()) do
@@ -21,7 +21,7 @@ function AutoFarmSnowFlakes()
     end
 end
 
-function AutoFarm()
+--[[ function AutoFarm()
 	while _G.AutoFarm == true do
 		for i,v in pairs(game:GetDescendants()) do
 			if v.Name == "C" then
@@ -30,7 +30,7 @@ function AutoFarm()
 			end
 		end
 	end
-end
+end --]]
 
 function AutoDig()
 	while _G.AutoDig == true do
@@ -298,7 +298,6 @@ Tab:AddToggle({
 			end
 			wait(0.5)
 			_G.AutoFarm = Value
-			AutoFarm()
 		end
 	end
 })
