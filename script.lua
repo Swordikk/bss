@@ -216,56 +216,6 @@ local HoneyMask = {
     }
 }
 
-local PathfindingService = game:GetService("PathfindingService")
-local Path = PathfindingService:CreatePath({
-	AgentCanJump = false
-})
-local LocalPlayer = game.Players.LocalPlayer
-local HumanoidRootPart = LocalPlayer.Character.HumanoidRootPart
-
--- HumanoidRootPart:SetNetworkOwner()
-
-local Humanoid = LocalPlayer.Character.Humanoid
-
-local waypoints
-local waypointIndex
-
-local reachedConnection
-local blockedConnection
-
-local function move(finishPos)
-	Path:ComputeAsync(HumanoidRootPart.Position, finishPos)
-	if Path.Status == Enum.PathStatus.Success then
-		waypoints = Path:GetWaypoints()
-		waypointIndex = 2
-		if not blockedConnection then
-			blockedConnection = Path.Blocked:Connect(function(blockedWaypointIndex)
-				if blockedWaypointIndex > waypointIndex then
-					blockedConnection:Disconnect()
-					blockedConnection = nil
-					move(finishPos)
-				end
-			end)
-		end
-		if not reachedConnection then
-			reachedConnection = Humanoid.MoveToFinished:Connect(function(reached)
-				if reached and waypointIndex < #waypoints then
-					waypointIndex += 1
-					Humanoid:MoveTo(waypoints[waypointIndex].Position)
-				else
-					reachedConnection:Disconnect()
-					reachedConnection = nil
-					if blockedConnection then
-						blockedConnection:Disconnect()
-						blockedConnection = nil
-					end
-				end
-			end)
-		end
-		Humanoid:MoveTo(waypoints[waypointIndex].Position)
-	end
-end
-
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -297,9 +247,9 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			AutoFarm = true
-		else
-			AutoFarm = false
+			if AutoFarm == "Pine Tree Forest"
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-328.670013, 65.5, -187.348999, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			end
 		end
 	end
 })
@@ -310,7 +260,7 @@ Tab:AddDropdown({
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
 		if Value == "Pine Tree Forest" then
-			move(Vector3.new(-328.670013, 65.5, -187.348999))
+			AutoFarm = Value
 		end
 	end    
 })
