@@ -71,7 +71,7 @@ end
 function AutoSplinker()
 	if _G.AutoSplinker == true do
 		game.Players.LocalPlayer.Character.Humanoid.Jump = true
-		wait(0.7)
+		wait(1)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 	end
 end
@@ -298,8 +298,6 @@ Tab:AddToggle({
 	Callback = function(Value)
 		if Value == true then
 			AutoFarm()
-			wait(0.5)
-			AutoSplinker()
 		end
 	end
 })
@@ -309,9 +307,7 @@ Tab:AddDropdown({
 	Default = "...",
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
-		if Value == "Pine Tree Forest" then
-			_G.AutoFarm = Value
-		end
+		_G.AutoFarm = Value
 	end    
 })
 
