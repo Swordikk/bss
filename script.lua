@@ -68,13 +68,13 @@ function AutoDig()
 	end
 end
 
-function AutoSplinker()
+--[[function AutoSplinker()
 	if _G.AutoSplinker == true do
 		game.Players.LocalPlayer.Character.Humanoid.Jump = true
 		wait(1)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 	end
-end
+end--]]
 
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
@@ -212,11 +212,11 @@ function FindallStickers()
 end
 
 -- Local Tables  --
-local AutoSplinker = {
+--[[local AutoSplinker = {
 	[1] = {
 		["Name"] = "Splinkler Builder"
 	}
-}
+}--]]
 
 local DemonMask = {
     [1] = "Equip",
