@@ -22,41 +22,41 @@ function AutoFarmSnowFlakes()
 end
 
 function AutoFarm()
-	if _G.AutoFarm == "Pepper Patch" then
+	if _G.Selectfield == "Pepper Patch" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Rose Field" then
+	elseif _G.Selectfield == "Rose Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-327.459839, 17.5552464, 129.496735, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Stump Field" then
+	elseif _G.Selectfield == "Stump Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(424.483276, 94.4255676, -174.810959, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Blue Flower Field" then
+	elseif _G.Selectfield == "Blue Flower Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(146.865021, 2.13494039, 99.3078308, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Bamboo Field" then
+	elseif _G.Selectfield == "Bamboo Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(132.963409, 18.1719551, -25.6000061, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Spider Field" then
+	elseif _G.Selectfield == "Spider Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.4654312, 18.1220875, -13.5899963, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Pine Tree Forest" then
+	elseif _G.Selectfield == "Pine Tree Forest" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-328.670013, 65.5, -187.348999, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Mountain Top Field" then
+	elseif _G.Selectfield == "Mountain Top Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(77.6849823, 173.500015, -165.431, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Strawberry Field" then
+	elseif _G.Selectfield == "Strawberry Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-178.174973, 18.1322384, -9.8549881, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Cactus Field" then
+	elseif _G.Selectfield == "Cactus Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-188.5, 65.5000153, -101.595818, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Coconut Field" then
+	elseif _G.Selectfield == "Coconut Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.478104, 68.9707947, 469.459045, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Mushroom Field" then
+	elseif _G.Selectfield == "Mushroom Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-89.7000122, 1.95073581, 111.725006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Pumpkin Patch" then
+	elseif _G.Selectfield == "Pumpkin Patch" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Sunflower Field" then
+	elseif _G.Selectfield == "Sunflower Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Clover Field" then
+	elseif _G.Selectfield == "Clover Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(157.547073, 31.608448, 196.350006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Pineapple Patch" then
+	elseif _G.Selectfield == "Pineapple Patch" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.498108, 66.1299973, -207.479324, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Dandelion Field" then
+	elseif _G.Selectfield == "Dandelion Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-29.6986389, 1.5, 221.572845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	elseif _G.AutoFarm == "Sunflower Field" then
+	elseif _G.Selectfield == "Sunflower Field" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 	end
 end
@@ -173,6 +173,7 @@ end
 
 function FindallStickers()
 	while _G.FindallStickers == true do
+		task.wait(0.5)
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(100)
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
@@ -194,7 +195,6 @@ function FindallStickers()
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
 		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
-		task.wait(0.2)
     end
 end
 
@@ -292,9 +292,7 @@ Tab:AddDropdown({
 	Default = "...",
 	Options = {"Pine Tree Forest"},
 	Callback = function(Value)
-		if Value == "Pine Tree Forest" then
-			
-		end
+		_G.Selectfield = Value
 	end    
 })
 
@@ -311,7 +309,7 @@ Tab:AddToggle({
 	Name = "Auto Splinker",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.AutoSplinker = Value
 	end
 })
 
