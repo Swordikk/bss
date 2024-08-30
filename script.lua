@@ -180,6 +180,12 @@ local HoneyMask = {
     }
 }
 
+local AutoSplinker = {
+    [1] = {
+        ["Name"] = "Sprinkler Builder"
+    }
+}
+
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -198,12 +204,6 @@ local Section = Tab:AddSection({
 local Section = Tab:AddSection({
 	Name = "     Version: v1.0.0"
 })
-
-local AutoSplinker = {
-    [1] = {
-        ["Name"] = "Sprinkler Builder"
-    }
-}
 
 -- Tab Farming --
 local Tab = Window:MakeTab({
@@ -257,8 +257,13 @@ Tab:AddToggle({
 			wait(0.5)
 			if _G.AutoSplinker == true then
 				game.Players.LocalPlayer.Character.Humanoid.Jump = true
-				wait(0.5)
+				wait(0.2)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
+			end
+			for i,v in next, game:GetService("Workspace").Collectibles:GetChildren() do
+				if v:FindFirstChildOfClass("Decal") and (v:FindFirstChildOfClass("Decal").Texture == "1629547638" or v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://1629547638")  then
+					
+				end
 			end
 		end
 	end
@@ -267,7 +272,7 @@ Tab:AddToggle({
 Tab:AddDropdown({
 	Name = "Select field",
 	Default = "...",
-	Options = {"Pine Tree Forest"},
+	Options = {"Pepper Patch", "Rose Field", "Stump Field", "Blue Flower Field", "Bamboo Field", "Spider Field", "Pine Tree Forest", "Mountain Top Field", "Strawberry Field", "Cactus Field", "Coconut Field", "Mushroom Field", "Pumpkin Patch", "Clover Field", "Pineapple Patch", "Dandelion Field", "Sunflower Field"},
 	Callback = function(Value)
 		_G.Selectfield = Value
 	end    
@@ -609,7 +614,39 @@ Tab:AddToggle({
 	Name = "Find all Stickers",
 	Default = false,
 	Callback = function(Value)
-		    
+		if Value == true do
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(100)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(103)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(104)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(105)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(106)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(107)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(108)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(109)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(110)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(111)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(112)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(113)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(114)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(115)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(116)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(121)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(122)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(123)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(124)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(125)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(126)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(127)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(128)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(129)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(130)
+		end
 	end
 })
 
