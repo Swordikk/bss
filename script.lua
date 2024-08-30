@@ -260,11 +260,6 @@ Tab:AddToggle({
 				wait(0.2)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			for i,v in next, game:GetService("Workspace").Collectibles:GetChildren() do
-				if v:FindFirstChildOfClass("Decal") and (v:FindFirstChildOfClass("Decal").Texture == "1629547638" or v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://1629547638")  then
-					
-				end
-			end
 		end
 	end
 })
