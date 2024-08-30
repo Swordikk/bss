@@ -277,7 +277,7 @@ Tab:AddToggle({
 			end
 			wait(7)
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://1629547638" then
+				if v.Transparency = 0 then
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				end
