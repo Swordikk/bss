@@ -260,9 +260,10 @@ Tab:AddToggle({
 				wait(0.5)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
+			wait(0.5)
 			for i,v in pairs, game:GetService("Workspace").Collectibles:GetChildren() do
 				if v.Texture == "rbxassetid://1629547638" then
-					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(v.Position))
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(v.Position)) -- ДОДЕЛАТЬ!!
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				end
 			end	
