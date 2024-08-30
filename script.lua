@@ -275,13 +275,13 @@ Tab:AddToggle({
 				wait(0.35)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			wait(5)
+			wait(7)
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if v.Transparency == 0 then
+				if v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://1629547638" then
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				end
-			end
+			end	
 		end
 	end
 })
