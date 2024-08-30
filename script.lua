@@ -272,14 +272,16 @@ Tab:AddToggle({
 			wait(0.5)
 			if _G.AutoSplinker == true then
 				game.Players.LocalPlayer.Character.Humanoid.Jump = true
-				wait(0.5)
+				wait(0.35)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(0.5)
-			for i,v in next, game:GetService("Workspace").Collectibles:GetChildren() do
-				if v.Texture == "rbxassetid://1629547638" then
-					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(v.Position)) -- ДОДЕЛАТЬ!!
-					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+			while Value == true then
+				for i,v in pairs, game:GetService("Workspace").Collectibles:GetChildren() do
+					if v:FindFirstChildOfClass("Decal").Texture == 'rbxassetid://1629547638' then
+						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(v.Position)) -- ДОДЕЛАТЬ!!
+						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					end
 				end
 			end
 		end
