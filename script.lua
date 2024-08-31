@@ -211,6 +211,7 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
+		_G.AutoFarm = true
 		if Value == true then
 			if _G.Selectfield == "Pepper Patch" then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
@@ -271,7 +272,8 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(3)
-			while task.wait(0.01) do
+			while _G.AutoFarm == true do
+				task.wait(0.1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
@@ -282,6 +284,9 @@ Tab:AddToggle({
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
+			end
+			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+				_G.AutoFarm = false
 			end
 		end
 	end
