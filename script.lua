@@ -282,7 +282,7 @@ Tab:AddToggle({
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					    game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				    end
-				end
+			    end
 			end
 		end
 	end
