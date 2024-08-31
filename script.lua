@@ -94,7 +94,7 @@ end
 
 function AutoConvert()
 	if _G.AutoConvert == true then
-		if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+		if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
 			print("Your Capacity is full")
 		end
 	end
