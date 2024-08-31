@@ -278,11 +278,11 @@ Tab:AddToggle({
 			wait(7)
 			repeat
 			    for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				    if v:GetChildren().BackDecal.Texture == "rbxassetid://1629547638" then
+				    if v.BackDecal.Texture == "rbxassetid://1629547638" then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					    game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				    end
-				end
+			    end
 			until Value == false
 		end
 	end
