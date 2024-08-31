@@ -276,7 +276,7 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(7)
-			while _G.TokenLink == true do
+			while _G.CollectTokens == true do
 			wait(1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442764904" then
@@ -319,10 +319,42 @@ local Section = Tab:AddSection({
 })
 
 Tab:AddToggle({
-	Name = "Token Link",
+	Name = "Collect Tokens",
 	Default = false,
 	Callback = function(Value)
-		_G.TokenLink = Value
+		_G.CollectTokens = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Token link",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Bombs",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Blue Boost",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Red Boost",
+	Default = false,
+	Callback = function(Value)
+		
 	end
 })
 
