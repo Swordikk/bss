@@ -259,7 +259,6 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					if game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive1" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-3.175869941711426, 6.409375190734863, 338.22467041015625))
 						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
