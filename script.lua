@@ -275,9 +275,9 @@ Tab:AddToggle({
 				wait(0.4)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			wait(7)
+			wait(5)
 			while _G.CollectTokens == true do
-			wait(1)
+			wait(0.1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			        if v.BackDecal.Texture == "rbxassetid://1629547638" or nil then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
@@ -322,7 +322,11 @@ Tab:AddToggle({
 	Name = "Collect Tokens",
 	Default = false,
 	Callback = function(Value)
-		_G.CollectTokens = Value
+		if Value == true then
+			_G.CollectTokens = ""
+		else
+			_G.CollectTokens = nil
+		end
 	end
 })
 
@@ -330,7 +334,11 @@ Tab:AddToggle({
 	Name = "Token link",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			_G.Tokenlink = ""
+		else
+			_G.Tokenlink = nil
+		end
 	end
 })
 
@@ -338,7 +346,11 @@ Tab:AddToggle({
 	Name = "Bombs",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			_G.Bombs = ""
+		else
+			_G.Bombs = nil
+		end
 	end
 })
 
@@ -346,7 +358,11 @@ Tab:AddToggle({
 	Name = "Blue Boost",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			_G.BlueBoost = ""
+		else
+			_G.BlueBoost = nil
+		end
 	end
 })
 
@@ -354,7 +370,11 @@ Tab:AddToggle({
 	Name = "Red Boost",
 	Default = false,
 	Callback = function(Value)
-		
+		if Value == true then
+			_G.RedBoost = ""
+		else
+			_G.RedBoost = nil
+		end
 	end
 })
 
