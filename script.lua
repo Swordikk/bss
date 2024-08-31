@@ -84,7 +84,7 @@ function AutoFarm()
 		task.wait(2)
 		while _G.AutoFarm == true do
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost or v.BackDecal.Texture == _G.Focus then
+				if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" then
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				end
 			end
@@ -245,14 +245,6 @@ local HoneyMask = {
         ["Type"] = "Honey Mask"
     }
 }
-
--- Local Value --
-_G.Tokenlink = "rbxassetid://1629547638"
-_G.Bomb1 = "rbxassetid://1442764904"
-_G.Bomb2 = "rbxassetid://1442725244"
-_G.BlueBoost = "rbxassetid://1442725244"
-_G.RedBoost = "rbxassetid://1442859163"
-_G.Focus = "rbxassetid://1629649299"
 
 -- Tab Main --
 local Tab = Window:MakeTab({
