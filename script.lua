@@ -28,11 +28,6 @@ function AutoDig()
 	end
 end
 
-function AutoSplinker()
-	game.Players.LocalPlayer.Character.Humanoid.Jump = true
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
-end
-
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
@@ -278,7 +273,9 @@ Tab:AddToggle({
 			wait(3)
 			while task.wait(0.01) do
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or v.BackDecal.Texture == "rbxassetid://1472532912" then
+			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+						v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442859163" or 
+						v.BackDecal.Texture == "rbxassetid://1629649299" or v.BackDecal.Texture == "rbxassetid://1472532912" then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
@@ -310,6 +307,14 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoSplinker = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Convert",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoConvert = Value
 	end
 })
 
