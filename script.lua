@@ -211,21 +211,8 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoFarm = true
 		if Value == true then
-			if _G.Selectfield == "Pepper Patch" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Rose Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-327.459839, 17.5552464, 129.496735, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Stump Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(424.483276, 94.4255676, -174.810959, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Blue Flower Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(146.865021, 2.13494039, 99.3078308, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Bamboo Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(132.963409, 18.1719551, -25.6000061, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Spider Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.4654312, 18.1220875, -13.5899963, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Pine Tree Forest" then
+			if _G.Selectfield == "Pine Tree Forest" then
 				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
@@ -242,28 +229,6 @@ Tab:AddToggle({
 				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
 				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-			elseif _G.Selectfield == "Mountain Top Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(77.6849823, 173.500015, -165.431, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Strawberry Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-178.174973, 18.1322384, -9.8549881, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Cactus Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-188.5, 65.5000153, -101.595818, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Coconut Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.478104, 68.9707947, 469.459045, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Mushroom Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-89.7000122, 1.95073581, 111.725006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Pumpkin Patch" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Sunflower Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Clover Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(157.547073, 31.608448, 196.350006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Pineapple Patch" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.498108, 66.1299973, -207.479324, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Dandelion Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-29.6986389, 1.5, 221.572845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			elseif _G.Selectfield == "Sunflower Field" then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 			end
 			wait(0.5)
 			if _G.AutoSplinker == true then
@@ -272,8 +237,7 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(3)
-			while _G.AutoFarm == true do
-				task.wait(0.1)
+			while task.wait(0.1) do
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
@@ -284,9 +248,6 @@ Tab:AddToggle({
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
-			end
-			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-				_G.AutoFarm = false
 			end
 		end
 	end
