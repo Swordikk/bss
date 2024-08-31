@@ -276,10 +276,9 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(3)
-			while _G.TokenLink == true do
-			wait(1)
+			while task.wait(0.01) do
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == "rbxassetid://1629547638" then
+			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or v.BackDecal.Texture == "rbxassetid://1472532912" then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
@@ -311,18 +310,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoSplinker = Value
-	end
-})
-
-local Section = Tab:AddSection({
-	Name = "Settings for Auto Farm"
-})
-
-Tab:AddToggle({
-	Name = "Token Link",
-	Default = false,
-	Callback = function(Value)
-		_G.TokenLink = Value
 	end
 })
 
