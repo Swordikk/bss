@@ -75,12 +75,14 @@ function AutoFarm()
 		elseif _G.Selectfield == "Sunflower Field" then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		end
-		wait(0.5)
+		task.wait(0.5)
 		if _G.AutoSplinker == true then
+			game.Players.LocalPlayer.Character.Humanoid.Jump = true
+			task.wait(0.3)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
-		wait(2)
-		while task.wait(0.01) do
+		task.wait(2)
+		while _G.AutoFarm == true do
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 				if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost or v.BackDecal.Texture == _G.Focus then
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
@@ -95,11 +97,6 @@ function AutoDig()
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
         task.wait(0.2)
 	end
-end
-
-function AutoSplinker()
-	game.Players.LocalPlayer.Character.Humanoid.Jump = true
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 end
 
 function AutoClaimAutoWealthClock()
@@ -249,6 +246,14 @@ local HoneyMask = {
     }
 }
 
+-- Local Value --
+_G.Tokenlink = "rbxassetid://1629547638"
+_G.Bomb1 = "rbxassetid://1442764904"
+_G.Bomb2 = "rbxassetid://1442725244"
+_G.BlueBoost = "rbxassetid://1442725244"
+_G.RedBoost = "rbxassetid://1442859163"
+_G.Focus = "rbxassetid://1629649299"
+
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -316,79 +321,13 @@ Tab:AddToggle({
 	end
 })
 
-Tab:AddToggle({
+--[[Tab:AddToggle({
 	Name = "Auto Convert",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvert = Value
 	end
-})
-
-local Section = Tab:AddSection({
-	Name = "Settings for Auto Farm"
-})
-
-Tab:AddToggle({
-	Name = "Token link",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.Tokenlink = "rbxassetid://1629547638"
-		else
-			_G.Tokenlink = nil
-		end
-	end
-})
-
-Tab:AddToggle({
-	Name = "Bombs",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.Bomb1 = "rbxassetid://1442764904"
-			_G.Bomb2 = "rbxassetid://1442725244"
-		else
-			_G.Bomb1 = nil
-			_G.Bomb2 = nil
-		end
-	end
-})
-
-Tab:AddToggle({
-	Name = "Blue Boost",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.BlueBoost = "rbxassetid://1442725244"
-		else
-			_G.BlueBoost = nil
-		end
-	end
-})
-
-Tab:AddToggle({
-	Name = "Red Boost",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.RedBoost = "rbxassetid://1442859163"
-		else
-			_G.RedBoost = nil
-		end
-	end
-})
-
-Tab:AddToggle({
-	Name = "Focus",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.Focus = "rbxassetid://1629649299"
-		else
-			_G.Focus = nil
-		end
-	end
-})
+})--]]
 
 -- Tab Teleports --
 local Tab = Window:MakeTab({
