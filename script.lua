@@ -285,27 +285,26 @@ Tab:AddToggle({
 			        if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost or v.BackDecal.Texture == _G.Focus then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
-					if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-						break
-					end
 			    end
 			until Value == false
-			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
-				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+			if _G.AutoConvert == true then
+				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				end
 			end
 		end
 	end
@@ -334,6 +333,14 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoSplinker = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Convert",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoConvert = Value
 	end
 })
 
