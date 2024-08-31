@@ -21,6 +21,10 @@ function AutoFarmSnowFlakes()
     end
 end
 
+function AutoFarm()
+
+end
+
 function AutoDig()
 	while _G.AutoDig == true do
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
@@ -275,15 +279,15 @@ Tab:AddToggle({
 				wait(0.4)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			wait(3)
-			while _G.CollectTokens == true do
-			wait(0.1)
+			wait(2)
+			repeat
+				wait(0.01)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost then
+			        if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost or v.BackDecal.Texture == _G.Focus then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
-			end
+			until Value == false
 		end
 	end
 })
@@ -372,6 +376,18 @@ Tab:AddToggle({
 			_G.RedBoost = "rbxassetid://1442859163"
 		else
 			_G.RedBoost = nil
+		end
+	end
+})
+
+Tab:AddToggle({
+	Name = "Focus",
+	Default = false,
+	Callback = function(Value)
+		if Value == true then
+			_G.Focus = "rbxassetid://1629649299"
+		else
+			_G.Focus = nil
 		end
 	end
 })
