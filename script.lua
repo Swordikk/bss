@@ -279,7 +279,7 @@ Tab:AddToggle({
 			while _G.TokenLink == true do
 			wait(1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == "rbxassetid://1629547638" then
+			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442725244" or v.BackDecal.Texture == "rbxassetid://1442764904" then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
