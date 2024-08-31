@@ -80,23 +80,12 @@ function AutoFarm()
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
 		wait(2)
-		while _G.AutoFarm == true do
+		while task.wait(0.01) do
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 				if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost or v.BackDecal.Texture == _G.Focus then
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				end
 			end
-			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-				_G.AutoFarm == false
-			end
-		end
-	end
-	if _G.AutoConvert == true then
-		if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-			game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
-			game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
-			game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
-			game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
 		end
 	end
 end
