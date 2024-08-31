@@ -77,8 +77,6 @@ function AutoFarm()
 		end
 		wait(0.5)
 		if _G.AutoSplinker == true then
-			game.Players.LocalPlayer.Character.Humanoid.Jump = true
-			wait(0.4)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
 		wait(2)
@@ -88,14 +86,14 @@ function AutoFarm()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				end
 			end
-		end
-	end
-end
-
-function AutoConvert()
-	if _G.AutoConvert == true then
-		if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-			print("Your Capacity is full")
+			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+				break
+				if _G.AutoConvert == true then
+					if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+						print("Your Capacity is full")
+					end
+				end
+			end
 		end
 	end
 end
@@ -331,7 +329,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvert = Value
-		AutoConvert()
 	end
 })
 
