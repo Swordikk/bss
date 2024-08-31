@@ -279,7 +279,7 @@ Tab:AddToggle({
 			while _G.CollectTokens == true do
 			wait(0.1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == "rbxassetid://1629547638" or nil then
+			        if v.BackDecal.Texture == _G.Tokenlink then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
@@ -322,11 +322,7 @@ Tab:AddToggle({
 	Name = "Collect Tokens",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			_G.CollectTokens = ""
-		else
-			_G.CollectTokens = nil
-		end
+		_G.CollectTokens = Value
 	end
 })
 
@@ -335,7 +331,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			_G.Tokenlink = ""
+			_G.Tokenlink = "rbxassetid://1629547638"
 		else
 			_G.Tokenlink = nil
 		end
