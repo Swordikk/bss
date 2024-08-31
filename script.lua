@@ -259,26 +259,20 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					if game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive1" then
+					if game:GetService("Players").PanikPas.Honeycomb.Value == "Hive1" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-3.175869941711426, 6.409375190734863, 338.22467041015625))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					elseif game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive2" then
+					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive2" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-39.59421157836914, 6.409373760223389, 337.9142150878906))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					elseif game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive3" then
+					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive3" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-75.80477905273438, 6.409373760223389, 338.1002502441406))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					elseif game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive4" then
+					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive4" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.3416976928711, 6.409373760223389, 338.678466796875))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					elseif game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive5" then
+					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive5" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-149.89059448242188, 6.409373760223389, 339.5627136230469))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					elseif game:GetService("Players").LocalPlayer.Honeycomb.Value == "Hive6" then
+					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive6" then
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-186.0644989013672, 6.409374237060547, 338.6793212890625))
-						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					end
-					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
+					-- game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 				end
 			end
 		end
