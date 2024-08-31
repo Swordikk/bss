@@ -275,11 +275,11 @@ Tab:AddToggle({
 				wait(0.4)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			wait(5)
+			wait(3)
 			while _G.CollectTokens == true do
 			wait(0.1)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == _G.Tokenlink then
+			        if v.BackDecal.Texture == _G.Tokenlink or v.BackDecal.Texture == _G.Bomb1 or v.BackDecal.Texture == _G.Bomb2 or v.BackDecal.Texture == _G.BlueBoost or v.BackDecal.Texture == _G.RedBoost then
 					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 				    end
 			    end
@@ -343,9 +343,11 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			_G.Bombs = ""
+			_G.Bomb1 = "rbxassetid://1442764904"
+			_G.Bomb2 = "rbxassetid://1442725244"
 		else
-			_G.Bombs = nil
+			_G.Bomb1 = nil
+			_G.Bomb2 = nil
 		end
 	end
 })
@@ -355,7 +357,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			_G.BlueBoost = ""
+			_G.BlueBoost = "rbxassetid://1442725244"
 		else
 			_G.BlueBoost = nil
 		end
@@ -367,7 +369,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			_G.RedBoost = ""
+			_G.RedBoost = "rbxassetid://1442859163"
 		else
 			_G.RedBoost = nil
 		end
