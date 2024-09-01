@@ -264,7 +264,7 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					repeat
+					repeat wait(1)
 						game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 				end
