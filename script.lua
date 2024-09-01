@@ -2,12 +2,21 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Simulator", HidePremium = false, IntroText = "Script by Swordik for BSS", SaveConfig = true, IntroEnabled = true, ConfigFolder = "Scripts"})
 
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(1)
+--[[game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(1)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(2)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(3)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(4)
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(5)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6)
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6) --]]
+
+-- Local --
+hives = game.Workspace.Honeycombs:GetChildren()
+
+for i = #hives, 1, -1 do
+	v = game.Workspace.Honeycombs:GetChildren()[i]
+	if v.Owner.Value == nil then game.ReplicatedStorage.Events.ClaimHive:FireServer(v.HiveID.Value)
+	end 
+end
 
 -- Functions --
 function AutoFarmSnowFlakes()
