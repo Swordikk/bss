@@ -2,13 +2,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Simulator", HidePremium = false, IntroText = "Script by Swordik for BSS", SaveConfig = true, IntroEnabled = true, ConfigFolder = "Scripts"})
 
---[[game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(1)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(2)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(3)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(4)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(5)
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClaimHive"):FireServer(6) --]]
-
 -- Local --
 hives = game.Workspace.Honeycombs:GetChildren()
 
@@ -268,19 +261,8 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					if game:GetService("Players").PanikPas.Honeycomb.Value == "Hive1" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-3.175869941711426, 6.409375190734863, 338.22467041015625))
-					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive2" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-39.59421157836914, 6.409373760223389, 337.9142150878906))
-					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive3" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-75.80477905273438, 6.409373760223389, 338.1002502441406))
-					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive4" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.3416976928711, 6.409373760223389, 338.678466796875))
-					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive5" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-149.89059448242188, 6.409373760223389, 339.5627136230469))
-					elseif game:GetService("Players").PanikPas.Honeycomb.Value == "Hive6" then
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-186.0644989013672, 6.409374237060547, 338.6793212890625))
-					end
+					game.Players.LocalPlayer.Character.Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
+					-- game:GetService("Players").LocalPlayer.SpawnPos.Value * CFrame.fromEulerAnglesXYZ(0, 110, 0) + Vector3.new(0, 0, 9)
 					-- game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 				end
 			end
