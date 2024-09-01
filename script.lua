@@ -267,6 +267,10 @@ Tab:AddToggle({
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 				end
 			end
+			wait(0.5)
+			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value = 0 then
+				function(Value)
+			end
 		end
 	end
 })
