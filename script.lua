@@ -248,10 +248,11 @@ Tab:AddToggle({
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
 						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
 						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
-					    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+						game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				    end
 			    end
-			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value or Value == false
 			wait(0.5)
 			if _G.AutoConvert == true then
 				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
