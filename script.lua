@@ -240,7 +240,7 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(3)
-			repeat task.wait(0.01)
+			repeat task.wait(0.001)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
@@ -265,15 +265,15 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					game.Players.LocalPlayer.Character.Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-					wait(0.5)
+					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-					wait(0.5)
 					repeat
-					        wait(1)
+					        --wait(1)
 						if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value ~= 0 then
-							wait(1.5)
+							wait(1)
 						end
 					until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+					wait(6)
 				end
 			end
 			until Value == false
