@@ -214,7 +214,8 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			if _G.Selectfield == "Pine Tree Forest" then
+			repeat
+				if _G.Selectfield == "Pine Tree Forest" then
 				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 				game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
@@ -268,13 +269,14 @@ Tab:AddToggle({
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					wait(0.5)
 					repeat
-						wait(1)
+					        wait(1)
 						if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value ~= 0 then
 							wait(1.5)
 						end
 					until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 				end
 			end
+			until Value == false
 		end
 	end
 })
