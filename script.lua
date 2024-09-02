@@ -270,9 +270,6 @@ Tab:AddToggle({
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					repeat
 					        wait(1)
-						--if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value ~= 0 then
-							--wait(1)
-						--end
 					until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 					wait(5)
 				end
