@@ -252,6 +252,7 @@ Tab:AddToggle({
 				    end
 			    end
 			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value or Value == false
+			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 			wait(0.5)
 			if _G.AutoConvert == true then
 				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
@@ -267,9 +268,7 @@ Tab:AddToggle({
 					game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
 					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-					repeat
-					        wait(1)
-					until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+					repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 					wait(5)
 				end
 			end
