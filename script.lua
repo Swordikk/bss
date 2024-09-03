@@ -698,7 +698,7 @@ Tab:AddToggle({
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					end
 				end--]]
-		else
+		elseif Value == false
 			game:GetService("Workspace").Part:Destroy()	
 		end
 	end
