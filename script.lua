@@ -35,7 +35,7 @@ end
 function AutoFarmTickets()
 	while _G.AutoFarmTickets == true do
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                        if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency = 0 then
+                        if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
 			end
