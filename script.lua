@@ -690,10 +690,11 @@ Tab:AddToggle({
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 			repeat task.wait(0.01)
 				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
+			        if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-254.646957, 109.892967, 448.79892))
-			until
+			until Value == false
 		end
 	end
 })
