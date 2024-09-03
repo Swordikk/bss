@@ -3,6 +3,10 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Simulator", HidePremium = false, IntroText = "Script by Swordik for BSS", SaveConfig = true, IntroEnabled = true, ConfigFolder = "Scripts"})
 
 -- Local --
+local Humanoid = game.Players.LocalPlayer.Character.Humanoid
+local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+-- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
 
 for i = #hives, 1, -1 do
@@ -17,7 +21,7 @@ function AutoFarmSnowFlakes()
 	wait(0.1)
                  for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://6087969886" then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                            HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
                         end
              end
@@ -29,7 +33,7 @@ function AutoFarmTickets()
 	wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                            HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
 			end
 		end
