@@ -258,16 +258,16 @@ Tab:AddToggle({
 			end
 			wait(3)
 			repeat task.wait(0.01)
-                for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+                                for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+			                if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
 						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
 						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-				    end
-			    end
+				        end
+			        end
 			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value or Value == false
 			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 			wait(0.5)
@@ -427,13 +427,13 @@ Tab:AddDropdown({
 	Options = {"Riley Bee", "Bubble Bee Man 2", "Honey Bee", "Bucko Bee"},
 	Callback = function(Option)
 		if Option == "Riley Bee" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-359.698547, 73.7508545, 212.98381, -0.0353397131, -5.82171467e-08, 0.999375343, 6.86169521e-09, 1, 5.84961768e-08, -0.999375343, 8.92464769e-09, -0.0353397131)
+			HumanoidRootPart.CFrame = CFrame.new(-359.698547, 73.7508545, 212.98381, -0.0353397131, -5.82171467e-08, 0.999375343, 6.86169521e-09, 1, 5.84961768e-08, -0.999375343, 8.92464769e-09, -0.0353397131)
 		elseif Option == "Bubble Bee Man 2" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(89.6592407, 311.659973, -276.670166, -0.996761739, -4.68983075e-09, -0.0804115981, -3.06037751e-09, 1, -2.03871533e-08, 0.0804115981, -2.00750438e-08, -0.996761739)
+			HumanoidRootPart.CFrame = CFrame.new(89.6592407, 311.659973, -276.670166, -0.996761739, -4.68983075e-09, -0.0804115981, -3.06037751e-09, 1, -2.03871533e-08, 0.0804115981, -2.00750438e-08, -0.996761739)
 		elseif Option == "Honey Bee" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-387.254608, 89.7740097, -217.340866, 0.999245942, -3.99869249e-09, 0.0388274044, 3.84793619e-09, 1, 3.95745259e-09, -0.0388274044, -3.80506293e-09, 0.999245942)
+			HumanoidRootPart.CFrame = CFrame.new(-387.254608, 89.7740097, -217.340866, 0.999245942, -3.99869249e-09, 0.0388274044, 3.84793619e-09, 1, 3.95745259e-09, -0.0388274044, -3.80506293e-09, 0.999245942)
 		elseif Option == "Bucko Bee" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(302.808044, 61.9308739, 105.647781, -0.0314106643, -4.18628581e-08, -0.999506593, -3.62203494e-08, 1, -4.07452596e-08, 0.999506593, 3.49226426e-08, -0.0314106643)
+			HumanoidRootPart.CFrame = CFrame.new(302.808044, 61.9308739, 105.647781, -0.0314106643, -4.18628581e-08, -0.999506593, -3.62203494e-08, 1, -4.07452596e-08, 0.999506593, 3.49226426e-08, -0.0314106643)
 		end
 	end    
 })
@@ -444,23 +444,23 @@ Tab:AddDropdown({
 	Options = {"Honey Dispenser", "Free Ant Pass Dispenser", "Treat Dispenser", "Blueberry Dispenser", "Strawberry Dispenser", "Free Royal Jelly Dispenser", "Glue Dispenser", "Coconut Dispenser", "Free Robo Pass Dispenser"},
 	Callback = function(Option)
 		if Option == "Honey Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(44.634903, 6.0755105, 320.79245, -0.704597771, 4.81862061e-09, -0.709606946, -8.25358555e-08, 1, 8.8743775e-08, 0.709606946, 1.21096676e-07, -0.704597771)
+			HumanoidRootPart.CFrame = CFrame.new(44.634903, 6.0755105, 320.79245, -0.704597771, 4.81862061e-09, -0.709606946, -8.25358555e-08, 1, 8.8743775e-08, 0.709606946, 1.21096676e-07, -0.704597771)
 		elseif Option == "Free Ant Pass Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(124.536469, 32.9333, 496.286591, 0.602213264, -5.00939379e-08, -0.798335254, 2.28301928e-08, 1, -4.55263525e-08, 0.798335254, 9.19042531e-09, 0.602213264)
+			HumanoidRootPart.CFrame = CFrame.new(124.536469, 32.9333, 496.286591, 0.602213264, -5.00939379e-08, -0.798335254, 2.28301928e-08, 1, -4.55263525e-08, 0.798335254, 9.19042531e-09, 0.602213264)
 		elseif Option == "Treat Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(193.03511, 68.9062805, -121.403297, 0.998085082, 4.27839897e-09, -0.0618556142, -4.44598358e-09, 1, -2.57164845e-09, 0.0618556142, 2.84173307e-09, 0.998085082)
+			HumanoidRootPart.CFrame = CFrame.new(193.03511, 68.9062805, -121.403297, 0.998085082, 4.27839897e-09, -0.0618556142, -4.44598358e-09, 1, -2.57164845e-09, 0.0618556142, 2.84173307e-09, 0.998085082)
 		elseif Option == "Blueberry Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(308.996857, 5.16781759, 135.104858, -0.999758601, -8.80229862e-08, 0.0219700672, -8.79370461e-08, 1, 4.87792873e-09, -0.0219700672, 2.94476843e-09, -0.999758601)
+			HumanoidRootPart.CFrame = CFrame.new(308.996857, 5.16781759, 135.104858, -0.999758601, -8.80229862e-08, 0.0219700672, -8.79370461e-08, 1, 4.87792873e-09, -0.0219700672, 2.94476843e-09, -0.999758601)
 		elseif Option == "Strawberry Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-320.79248, 47.1373825, 271.643005, 0.999385357, -2.16943672e-08, -0.0350553803, 2.18021725e-08, 1, 2.69299827e-09, 0.0350553803, -3.45562645e-09, 0.999385357)
+			HumanoidRootPart.CFrame = CFrame.new(-320.79248, 47.1373825, 271.643005, 0.999385357, -2.16943672e-08, -0.0350553803, 2.18021725e-08, 1, 2.69299827e-09, 0.0350553803, -3.45562645e-09, 0.999385357)
 		elseif Option == "Free Royal Jelly Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(130.180511, 65.8704834, 334.0961, -0.742895901, -3.54121532e-08, 0.66940701, 7.97245026e-09, 1, 6.17484659e-08, -0.66940701, 5.12094971e-08, -0.742895901)
+			HumanoidRootPart.CFrame = CFrame.new(130.180511, 65.8704834, 334.0961, -0.742895901, -3.54121532e-08, 0.66940701, 7.97245026e-09, 1, 6.17484659e-08, -0.66940701, 5.12094971e-08, -0.742895901)
 		elseif Option == "Glue Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(270.769104, 25257.5508, -723.044312, -0.999837756, -1.74266184e-08, -0.0180135481, -1.961617e-08, 1, 1.2137356e-07, 0.0180135481, 1.21707217e-07, -0.999837756)
+			HumanoidRootPart.CFrame = CFrame.new(270.769104, 25257.5508, -723.044312, -0.999837756, -1.74266184e-08, -0.0180135481, -1.961617e-08, 1, 1.2137356e-07, 0.0180135481, 1.21707217e-07, -0.999837756)
 		elseif Option == "Coconut Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-177.19838, 73.5675659, 532.03833, -0.999891281, 1.66190688e-08, -0.0147444187, 1.66544449e-08, 1, -2.27651276e-09, 0.0147444187, -2.52182542e-09, -0.999891281)
+			HumanoidRootPart.CFrame = CFrame.new(-177.19838, 73.5675659, 532.03833, -0.999891281, 1.66190688e-08, -0.0147444187, 1.66544449e-08, 1, -2.27651276e-09, 0.0147444187, -2.52182542e-09, -0.999891281)
 		elseif Option == "Free Robo Pass Dispenser" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-90.8105164, 183.333847, -296.463745, 0.382361948, 1.04208858e-07, 0.924012661, -1.60230886e-08, 1, -1.06148164e-07, -0.924012661, 2.57814801e-08, 0.382361948)
+			HumanoidRootPart.CFrame = CFrame.new(-90.8105164, 183.333847, -296.463745, 0.382361948, 1.04208858e-07, 0.924012661, -1.60230886e-08, 1, -1.06148164e-07, -0.924012661, 2.57814801e-08, 0.382361948)
 		end
 	end    
 })
@@ -468,21 +468,21 @@ Tab:AddDropdown({
 Tab:AddButton({
 	Name = "Wind Shrine",
 	Callback = function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-480.719391, 141.985352, 411.706055, 0.0117854867, -1.10345162e-07, 0.999930561, -3.46812392e-08, 1, 1.1076159e-07, -0.999930561, -3.59842112e-08, 0.0117854867)
+		HumanoidRootPart.CFrame = CFrame.new(-480.719391, 141.985352, 411.706055, 0.0117854867, -1.10345162e-07, 0.999930561, -3.46812392e-08, 1, 1.1076159e-07, -0.999930561, -3.59842112e-08, 0.0117854867)
   	end    
 })
 
 Tab:AddButton({
 	Name = "Stick Bug",
 	Callback = function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-128.910812, 50.0708847, 146.199905, -0.999978602, -3.60832715e-08, 0.00654285913, -3.55950114e-08, 1, 7.4741223e-08, -0.00654285913, 7.45067297e-08, -0.999978602)
+		HumanoidRootPart.CFrame = CFrame.new(-128.910812, 50.0708847, 146.199905, -0.999978602, -3.60832715e-08, 0.00654285913, -3.55950114e-08, 1, 7.4741223e-08, -0.00654285913, 7.45067297e-08, -0.999978602)
   	end    
 })
 
 Tab:AddButton({
 	Name = "Onett",
 	Callback = function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9.52774906, 232.79126, -517.589478, 0.99826622, -6.18920808e-08, -0.058860749, 5.52034507e-08, 1, -1.1526086e-07, 0.058860749, 1.11811701e-07, 0.99826622)
+		HumanoidRootPart.CFrame = CFrame.new(-9.52774906, 232.79126, -517.589478, 0.99826622, -6.18920808e-08, -0.058860749, 5.52034507e-08, 1, -1.1526086e-07, 0.058860749, 1.11811701e-07, 0.99826622)
   	end    
 })
 
@@ -692,12 +692,14 @@ Tab:AddToggle({
                 cocopad.CanCollide = true
                 cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
-			--[[repeat task.wait(0.01)
+			repeat task.wait(0.01)
 				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			                if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+			                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
 						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-			until Value == false--]]
+					end
+				end
+			until Value == false
 		end
 	end
 })
