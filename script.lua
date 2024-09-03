@@ -23,6 +23,7 @@ cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.8679199218
 -- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
+	wait(0.1)
             for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://6087969886" then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
@@ -34,6 +35,7 @@ end
 
 function AutoFarmTickets()
 	while _G.AutoFarmTickets == true do
+	wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
