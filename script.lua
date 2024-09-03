@@ -14,9 +14,9 @@ end
 local cocopad = Instance.new("Part", game:GetService("Workspace"))
 cocopad.Name = "Coconut Part"
 cocopad.Anchored = true
-cocopad.Transparency = 0
+cocopad.Transparency = 1
 cocopad.Size = Vector3.new(135, 1, 100)
-cocopad.CanCollide = false
+cocopad.CanCollide = true
 cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 
 
