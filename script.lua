@@ -677,9 +677,6 @@ Tab:AddToggle({
                 cocopad.Size = Vector3.new(135, 1, 100)
                 cocopad.CanCollide = true
                 cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 105.91863250732, 480.86791992188)
-		else
-			    game:GetService("Workspace").Part:Destory()
 		end
 	end
 })
