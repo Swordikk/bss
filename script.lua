@@ -15,7 +15,7 @@ end
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
 	wait(0.1)
-            for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://6087969886" then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
@@ -693,7 +693,6 @@ Tab:AddToggle({
 			        if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
 						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-						game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(-254.646957, 109.892967, 448.79892))
 			until Value == false
 		end
 	end
