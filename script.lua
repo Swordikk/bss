@@ -18,13 +18,14 @@ end
 -- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
-	wait(0.1)
+		repeat task.wait(0.1)
                  for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if v.BackDecal.Texture == "rbxassetid://6087969886" then
                             HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
                         end
                   end
+		until _G.AutoFarmSnowFlakes == false
          end
 end
 
