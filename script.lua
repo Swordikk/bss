@@ -648,10 +648,8 @@ Tab:AddToggle({
 	Name = "Auto Farm SnowFlakes",
 	Default = false,
 	Callback = function(Value)
-		repeat task.wait(0.1)
-			_G.AutoFarmSnowFlakes = Value
-                        AutoFarmSnowFlakes()
-		until Value == false
+		_G.AutoFarmSnowFlakes = Value
+                AutoFarmSnowFlakes()
 	end
 })
 
@@ -694,14 +692,14 @@ Tab:AddToggle({
                 cocopad.CanCollide = true
                 cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
-			repeat task.wait(0.01)
-				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+				--[[for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 			                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
 						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
 					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
 					end
-				end
-			until Value == false
+				end--]]
+		else
+			game:GetService("Workspace").Part:Destroy()	
 		end
 	end
 })
