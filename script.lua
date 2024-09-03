@@ -648,8 +648,10 @@ Tab:AddToggle({
 	Name = "Auto Farm SnowFlakes",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoFarmSnowFlakes = Value
-        AutoFarmSnowFlakes()
+		repeat task.wait(0.1)
+			_G.AutoFarmSnowFlakes = Value
+                        AutoFarmSnowFlakes()
+		until Value == false
 	end
 })
 
@@ -658,7 +660,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoFarmTickets = Value
-        AutoFarmTickets()
+                AutoFarmTickets()
 	end
 })
 
