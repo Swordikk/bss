@@ -23,13 +23,13 @@ cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.8679199218
 -- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
-        for i,v in pairs(game:GetDescendants()) do
-            if v.Name == "SnowflakePart" then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                wait(3)
-            end
-        end
-    end
+            for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+                        if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                            wait(1.5)
+                        end
+             end
+         end
 end
 
 function AutoDig()
