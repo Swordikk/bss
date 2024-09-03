@@ -32,6 +32,16 @@ function AutoFarmSnowFlakes()
          end
 end
 
+function AutoFarmTickets()
+	while _G.AutoFarmTickets == true do
+		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+                        if v.BackDecal.Texture == "" then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                            wait(1.5)
+			end
+	end
+end
+
 function AutoDig()
 	while _G.AutoDig == true do
         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
