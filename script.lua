@@ -326,6 +326,14 @@ Tab:AddToggle({
 	end
 })
 
+Tab:AddToggle({
+	Name = "Auto Convert Balloon",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoConvertBalloon = Value
+	end
+})
+
 -- Tab Teleports --
 local Tab = Window:MakeTab({
 	Name = "Teleports",
@@ -672,13 +680,14 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-				local cocopad = Instance.new("Part", game:GetService("Workspace"))
+		local cocopad = Instance.new("Part", game:GetService("Workspace"))
                 cocopad.Name = "Coconut Part"
                 cocopad.Anchored = true
                 cocopad.Transparency = 1
                 cocopad.Size = Vector3.new(135, 1, 100)
                 cocopad.CanCollide = true
                 cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		end
 	end
 })
