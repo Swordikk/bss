@@ -627,7 +627,7 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "Auto FarmSnowFlakes",
+	Name = "Auto Farm SnowFlakes",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoFarmSnowFlakes = Value
@@ -636,17 +636,11 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "Auto FarmSnowFlakes with tp",
+	Name = "Auto Farm Tickets",
 	Default = false,
 	Callback = function(Value)
-		while Value == true do
-                    for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                        if v.BackDecal.Texture == "rbxassetid://6087969886" then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                            wait(1.5)
-                        end
-                    end
-                end
+		_G.AutoFarmTickets = Value
+        AutoFarmTickets()
 	end
 })
 
