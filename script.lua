@@ -11,6 +11,15 @@ for i = #hives, 1, -1 do
 	end 
 end
 
+local cocopad = Instance.new("Part", game:GetService("Workspace"))
+cocopad.Name = "Coconut Part"
+cocopad.Anchored = true
+cocopad.Transparency = 0
+cocopad.Size = Vector3.new(135, 1, 100)
+cocopad.CanCollide = false
+cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
+
+
 -- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
@@ -240,9 +249,9 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(3)
-			repeat task.wait(0.001)
+			repeat task.wait(0.01)
                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+			        if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
@@ -623,6 +632,21 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.AutoFarmSnowFlakes = Value
         AutoFarmSnowFlakes()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto FarmSnowFlakes with tp",
+	Default = false,
+	Callback = function(Value)
+		while Value == true do
+                    for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+                        if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                            wait(1.5)
+                        end
+                    end
+                end
 	end
 })
 
