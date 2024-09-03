@@ -24,7 +24,7 @@ function AutoFarmSnowFlakes()
                             HumanoidRootPart.CFrame = v.CFrame
                             wait(1.5)
                         end
-             end
+                  end
          end
 end
 
