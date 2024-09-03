@@ -11,15 +11,6 @@ for i = #hives, 1, -1 do
 	end 
 end
 
-local cocopad = Instance.new("Part", game:GetService("Workspace"))
-cocopad.Name = "Coconut Part"
-cocopad.Anchored = true
-cocopad.Transparency = 1
-cocopad.Size = Vector3.new(135, 1, 100)
-cocopad.CanCollide = true
-cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
-
-
 -- Functions --
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
@@ -672,6 +663,20 @@ local Tab = Window:MakeTab({
 	Name = "Combat",
 	Icon = "rbxassetid://4370186570",
 	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Kill Crab",
+	Default = false,
+	Callback = function(Value)
+			local cocopad = Instance.new("Part", game:GetService("Workspace"))
+cocopad.Name = "Coconut Part"
+cocopad.Anchored = true
+cocopad.Transparency = 1
+cocopad.Size = Vector3.new(135, 1, 100)
+cocopad.CanCollide = true
+cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
+	end
 })
 
 -- Tab Auto Quest --
