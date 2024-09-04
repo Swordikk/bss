@@ -172,7 +172,7 @@ function KillCoconutCrab()
 end
 
 function WalkSpeed()
-	while _G.WalkSpeed do
+	while _G.WalkSpeed do task.wait(.00000001)
 	        Humanoid.WalkSpeed = _G.WalkSpeed
         end
 end
