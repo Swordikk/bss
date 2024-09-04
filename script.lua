@@ -163,6 +163,7 @@ function KillCoconutCrab()
 				end--]]
 	else
 		game:GetService("Workspace").Part:Destroy()
+	end
 end
 
 -- Local Tables  --
