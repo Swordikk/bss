@@ -375,41 +375,41 @@ Tab:AddDropdown({
 	Options = {"Pepper Patch", "Rose Field", "Stump Field", "Blue Flower Field", "Bamboo Field", "Spider Field", "Pine Tree Forest", "Mountain Top Field", "Strawberry Field", "Cactus Field", "Coconut Field", "Mushroom Field", "Pumpkin Patch", "Clover Field", "Pineapple Patch", "Dandelion Field", "Sunflower Field"},
 	Callback = function(Option)
 		if Option == "Pepper Patch" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-488.761566, 120.701508, 535.680176, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Rose Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-327.459839, 17.5552464, 129.496735, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-327.459839, 17.5552464, 129.496735, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Stump Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(424.483276, 94.4255676, -174.810959, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(424.483276, 94.4255676, -174.810959, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Blue Flower Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(146.865021, 2.13494039, 99.3078308, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(146.865021, 2.13494039, 99.3078308, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Bamboo Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(132.963409, 18.1719551, -25.6000061, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(132.963409, 18.1719551, -25.6000061, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Spider Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.4654312, 18.1220875, -13.5899963, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-43.4654312, 18.1220875, -13.5899963, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Pine Tree Forest" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-328.670013, 65.5, -187.348999, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-328.670013, 65.5, -187.348999, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Mountain Top Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(77.6849823, 173.500015, -165.431, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(77.6849823, 173.500015, -165.431, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Strawberry Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-178.174973, 18.1322384, -9.8549881, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-178.174973, 18.1322384, -9.8549881, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Cactus Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-188.5, 65.5000153, -101.595818, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-188.5, 65.5000153, -101.595818, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Coconut Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.478104, 68.9707947, 469.459045, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-254.478104, 68.9707947, 469.459045, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Mushroom Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-89.7000122, 1.95073581, 111.725006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-89.7000122, 1.95073581, 111.725006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Pumpkin Patch" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Sunflower Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Clover Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(157.547073, 31.608448, 196.350006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(157.547073, 31.608448, 196.350006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Pineapple Patch" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.498108, 66.1299973, -207.479324, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(256.498108, 66.1299973, -207.479324, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Dandelion Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-29.6986389, 1.5, 221.572845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-29.6986389, 1.5, 221.572845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Sunflower Field" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		end
 	end
 })
@@ -420,27 +420,27 @@ Tab:AddDropdown({
 	Options = {"Panda", "Brown Bear", "Polar Bear", "Science Bear", "Mother Bear", "Spirit Bear", "Gummy Bear", "Dapper Bear", "Robo Bear", "Bee Bear 6", "Black Bear"},
 	Callback = function(Option)
 		if Option == "Panda" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(104.200691, 35.8590469, 50.2560043, 0.999723554, 7.20249957e-08, -0.0235128812, -7.41187165e-08, 1, -8.8174481e-08, 0.0235128812, 8.98928434e-08, 0.999723554)
+			HumanoidRootPart.CFrame = CFrame.new(104.200691, 35.8590469, 50.2560043, 0.999723554, 7.20249957e-08, -0.0235128812, -7.41187165e-08, 1, -8.8174481e-08, 0.0235128812, 8.98928434e-08, 0.999723554)
 		elseif Option == "Brown Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(279.710724, 46.1197281, 236.497421, 0.0170629025, 7.83482648e-08, -0.999854445, 1.61901674e-08, 1, 7.86359635e-08, 0.999854445, -1.75295689e-08, 0.0170629025)
+			HumanoidRootPart.CFrame = CFrame.new(279.710724, 46.1197281, 236.497421, 0.0170629025, 7.83482648e-08, -0.999854445, 1.61901674e-08, 1, 7.86359635e-08, 0.999854445, -1.75295689e-08, 0.0170629025)
 		elseif Option == "Polar Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-106.858292, 119.548225, -74.7583237, 0.998303831, 5.36514833e-09, -0.0582188591, -5.37894751e-09, 1, -8.03093564e-11, 0.0582188591, 3.93329314e-10, 0.998303831)
+			HumanoidRootPart.CFrame = CFrame.new(-106.858292, 119.548225, -74.7583237, 0.998303831, 5.36514833e-09, -0.0582188591, -5.37894751e-09, 1, -8.03093564e-11, 0.0582188591, 3.93329314e-10, 0.998303831)
 		elseif Option == "Science Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(266.019348, 103.142708, 19.7369366, -0.052989129, -8.66375416e-08, -0.998595119, 4.40085515e-08, 1, -8.90946907e-08, 0.998595119, -4.8667772e-08, -0.052989129)
+			HumanoidRootPart.CFrame = CFrame.new(266.019348, 103.142708, 19.7369366, -0.052989129, -8.66375416e-08, -0.998595119, 4.40085515e-08, 1, -8.90946907e-08, 0.998595119, -4.8667772e-08, -0.052989129)
 		elseif Option == "Mother Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-178.246506, 5.64110851, 89.7603683, 0.999886751, -2.73458625e-08, -0.0150512839, 2.73033365e-08, 1, -3.03087888e-09, 0.0150512839, 2.61958522e-09, 0.999886751)
+			HumanoidRootPart.CFrame = CFrame.new(-178.246506, 5.64110851, 89.7603683, 0.999886751, -2.73458625e-08, -0.0150512839, 2.73033365e-08, 1, -3.03087888e-09, 0.0150512839, 2.61958522e-09, 0.999886751)
 		elseif Option == "Spirit Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-364.833252, 98.3790665, 477.938873, -0.999622226, 7.53339364e-08, 0.0274852775, 7.72373525e-08, 1, 6.81903671e-08, -0.0274852775, 7.02874985e-08, -0.999622226)
+			HumanoidRootPart.CFrame = CFrame.new(-364.833252, 98.3790665, 477.938873, -0.999622226, 7.53339364e-08, 0.0274852775, 7.72373525e-08, 1, 6.81903671e-08, -0.0274852775, 7.02874985e-08, -0.999622226)
 		elseif Option == "Gummy Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(271.786926, 25292.8848, -849.033508, 0.999969125, -3.85275767e-09, 0.00785916112, 3.76217901e-09, 1, 1.15400294e-08, -0.00785916112, -1.15101058e-08, 0.999969125)
+			HumanoidRootPart.CFrame = CFrame.new(271.786926, 25292.8848, -849.033508, 0.999969125, -3.85275767e-09, 0.00785916112, 3.76217901e-09, 1, 1.15400294e-08, -0.00785916112, -1.15101058e-08, 0.999969125)
 		elseif Option == "Dapper Bear" then 
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(552.027832, 142.559525, -360.567322, 0.465034455, -4.30197344e-09, -0.88529259, 8.97104186e-08, 1, 4.22645137e-08, 0.88529259, -9.90744198e-08, 0.465034455)
+			HumanoidRootPart.CFrame = CFrame.new(552.027832, 142.559525, -360.567322, 0.465034455, -4.30197344e-09, -0.88529259, 8.97104186e-08, 1, 4.22645137e-08, 0.88529259, -9.90744198e-08, 0.465034455)
 		elseif Option == "Robo Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442.7388, 41.9821243, 110.889389, 0.0215954557, 7.86575498e-08, 0.999766767, 2.22631336e-08, 1, -7.91567913e-08, -0.999766767, 2.39673685e-08, 0.0215954557)
+			HumanoidRootPart.CFrame = CFrame.new(-442.7388, 41.9821243, 110.889389, 0.0215954557, 7.86575498e-08, 0.999766767, 2.22631336e-08, 1, -7.91567913e-08, -0.999766767, 2.39673685e-08, 0.0215954557)
 		elseif Option == "Bee Bear 6" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-39.9686203, 5.86712074, 285.307129, 0.99986577, 1.82821385e-08, 0.0163857341, -1.98960066e-08, 1, 9.83292807e-08, -0.0163857341, -9.86420901e-08, 0.99986577)
+			HumanoidRootPart.CFrame = CFrame.new(-39.9686203, 5.86712074, 285.307129, 0.99986577, 1.82821385e-08, 0.0163857341, -1.98960066e-08, 1, 9.83292807e-08, -0.0163857341, -9.86420901e-08, 0.99986577)
 		elseif Option == "Black Bear" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-253.612228, 5.50084734, 296.537048, -0.0477622002, -5.98545213e-09, 0.99885875, 6.29186836e-09, 1, 6.29314778e-09, -0.99885875, 6.58526256e-09, -0.0477622002)
+			HumanoidRootPart.CFrame = CFrame.new(-253.612228, 5.50084734, 296.537048, -0.0477622002, -5.98545213e-09, 0.99885875, 6.29186836e-09, 1, 6.29314778e-09, -0.99885875, 6.58526256e-09, -0.0477622002)
 		end
 	end    
 })
@@ -673,7 +673,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoFarmSnowFlakes = Value
-                AutoFarmSnowFlakes()
+        AutoFarmSnowFlakes()
 	end
 })
 
@@ -682,7 +682,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoFarmTickets = Value
-                AutoFarmTickets()
+        AutoFarmTickets()
 	end
 })
 
@@ -691,6 +691,19 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(116)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(122)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(123)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(125)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(126)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(128)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(127) -- ДОДЕЛАТЬ!
 		end
 	end
