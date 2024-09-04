@@ -7,7 +7,6 @@ local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 -- Delete Objects --
-game:GetService("Workspace").Decorations:Destroy()
 
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
@@ -16,6 +15,9 @@ for i = #hives, 1, -1 do
 	v = game.Workspace.Honeycombs:GetChildren()[i]
 	if v.Owner.Value == nil then game.ReplicatedStorage.Events.ClaimHive:FireServer(v.HiveID.Value)
 	end 
+end
+
+function AutoFarm()
 end
 
 -- Functions --
@@ -254,9 +256,8 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			repeat
-				if _G.Selectfield == "Pine Tree Forest" then
+		while Value == true do
+			if _G.Selectfield == "Pine Tree Forest" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
 				Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
@@ -282,40 +283,39 @@ Tab:AddToggle({
 			end
 			wait(3)
 			repeat task.wait(0.01)
-                for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			        if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+					if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
 						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
 						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
-					    Humanoid:MoveTo(v.Position)
-				    end
-			    end
-			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value or Value == false
+						Humanoid:MoveTo(v.Position)
+					end
+				end
+			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 			wait(0.5)
 			if _G.AutoConvert == true then
 				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
 					if _G.Selectfield == "Pine Tree Forest" then
 						Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
-					    Humanoid.MoveToFinished:Wait()
-					    Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
-					    Humanoid.MoveToFinished:Wait()
-					    Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
-					    Humanoid.MoveToFinished:Wait()
-					    Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					    Humanoid.MoveToFinished:Wait()
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
+						Humanoid.MoveToFinished:Wait()
 					end
-				    Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
-				    Humanoid.MoveToFinished:Wait()
+					Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
+					Humanoid.MoveToFinished:Wait()
 					wait(0.1)
-				    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
+					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 					wait(5.5)
 				end
 			end
-			until Value == false
 		end
 	end
 })
