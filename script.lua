@@ -162,18 +162,22 @@ function KillCoconutCrab()
 		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
-		Humanoid:MoveTo(v.Position)
-            end
-        end
-	else
-		game:GetService("Workspace").Part:Destroy()
+                        if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
+		                Humanoid:MoveTo(v.Position
+			end
+		end
 	end
 end
 
 function WalkSpeed()
 	while _G.WalkSpeed do task.wait(.00000001)
 	        Humanoid.WalkSpeed = _G.WalkSpeed
+        end
+end
+
+function JumpPower()
+	while _G.JumpPower do task.wait(.00000001)
+	        Humanoid.JumpPower = _G.JumpPower
         end
 end
 
@@ -752,18 +756,6 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Active Speed",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.ActiveSpeed = true
-		else
-			_G.ActiveSpeed = false
-		end
-	end    
-})
-
 Tab:AddTextbox({
 	Name = "WalkSpeed",
 	Default = "",
@@ -771,16 +763,16 @@ Tab:AddTextbox({
 	Callback = function(Value)
 		_G.WalkSpeed = Value
 		WalkSpeed()
-		--[[while wait() do
-			if _G.ActiveSpeed == true then
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-			else
-				break
-			end
-		end
-		if _G.ActiveSpeed == false then
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 28
-		end--]]
+	end
+})
+
+Tab:AddTextbox({
+	Name = "JumpPower",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+		_G.JumpPower = Value
+		JumpPower()
 	end
 })
 
