@@ -145,6 +145,26 @@ function AutoClaimGingerbreadHouse()
     end
 end
 
+function KillCoconutCrab()
+	if _G.KillCoconutCrab == Value then
+		local cocopad = Instance.new("Part", game:GetService("Workspace"))
+		cocopad.Name = "Coconut Part"
+		cocopad.Anchored = true
+		cocopad.Transparency = 1
+		cocopad.Size = Vector3.new(135, 1, 100)
+		cocopad.CanCollide = true
+		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
+		--[[for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+			                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
+					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+					end
+				end--]]
+	else
+		game:GetService("Workspace").Part:Destroy()
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -680,27 +700,11 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddToggle({
-	Name = "Kill Crab",
+	Name = "Kill Coconut Crab",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-		local cocopad = Instance.new("Part", game:GetService("Workspace"))
-                cocopad.Name = "Coconut Part"
-                cocopad.Anchored = true
-                cocopad.Transparency = 1
-                cocopad.Size = Vector3.new(135, 1, 100)
-                cocopad.CanCollide = true
-                cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
-				--[[for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
-						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
-					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-					end
-				end--]]
-		elseif Value == false
-			game:GetService("Workspace").Part:Destroy()	
-		end
+		_G.KillCoconutCrab = Value
+		KillCoconutCrab()
 	end
 })
 
