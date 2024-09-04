@@ -6,6 +6,9 @@ local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Sim
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
+-- Delete Objects --
+game.Workspace.Decorations:Destroy()
+
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
 
