@@ -18,25 +18,89 @@ for i = #hives, 1, -1 do
 end
 
 -- Functions --
+function AutoFarm()
+	while _G.AutoFarm == true do
+		if _G.Selectfield == "Pine Tree Forest" then
+			Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
+			Humanoid.MoveToFinished:Wait()
+			Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+			Humanoid.MoveToFinished:Wait()
+		end
+		wait(0.5)
+		if _G.AutoSplinker == true then
+			Humanoid.Jump = true
+			wait(0.4)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
+		end
+		wait(0.5)
+		repeat task.wait(0.01)
+			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+				if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+					v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
+					v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
+					v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
+					v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
+					v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
+					Humanoid:MoveTo(v.Position)
+				end
+			end
+		until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+		repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+		wait(0.5)
+		if _G.AutoConvert == true then
+			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+				if _G.Selectfield == "Pine Tree Forest" then
+					Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
+					Humanoid.MoveToFinished:Wait()
+					Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
+					Humanoid.MoveToFinished:Wait()
+					Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
+					Humanoid.MoveToFinished:Wait()
+					Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
+					Humanoid.MoveToFinished:Wait()
+				end
+				Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
+				Humanoid.MoveToFinished:Wait()
+				wait(0.1)
+				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
+				repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+				wait(5.5)
+			end
+		end
+	end
+end
+
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
-		 task.wait(0.1)
-                 for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                        if v.BackDecal.Texture == "rbxassetid://6087969886" then
-                            HumanoidRootPart.CFrame = v.CFrame
-                            wait(1.5)
-                        end
+	task.wait(0.1)
+        for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+            if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                HumanoidRootPart.CFrame = v.CFrame
+                wait(1.5)
+            end
 		end         
 	end
 end
 
 function AutoFarmTickets()
 	while _G.AutoFarmTickets == true do
-	        task.wait(0.1)
+	task.wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                        if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
-                            HumanoidRootPart.CFrame = v.CFrame
-                            wait(1.5)
+            if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
+                HumanoidRootPart.CFrame = v.CFrame
+                wait(1.5)
 			end
 		end
 	end
@@ -158,10 +222,10 @@ function KillCoconutCrab()
 		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
-						or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
-					        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-                end
+            if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+				or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
+				game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+            end
         end
 	else
 		game:GetService("Workspace").Part:Destroy()
@@ -253,69 +317,8 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		if Value == true then
-			repeat
-				if _G.Selectfield == "Pine Tree Forest" then
-				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
-				Humanoid.MoveToFinished:Wait()
-				Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
-				Humanoid.MoveToFinished:Wait()
-			end
-			wait(0.5)
-			if _G.AutoSplinker == true then
-				Humanoid.Jump = true
-				wait(0.4)
-				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
-			end
-			wait(3)
-			repeat task.wait(0.01)
-                                for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-			                if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
-						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
-						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
-						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
-						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
-						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
-					        Humanoid:MoveTo(v.Position)
-				        end
-			        end
-			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value or Value == false
-			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-			wait(0.5)
-			if _G.AutoConvert == true then
-				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-					if _G.Selectfield == "Pine Tree Forest" then
-						Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
-					        Humanoid.MoveToFinished:Wait()
-					        Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
-					        Humanoid.MoveToFinished:Wait()
-					        Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
-					        Humanoid.MoveToFinished:Wait()
-					        Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					        Humanoid.MoveToFinished:Wait()
-					end
-				        Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
-				        Humanoid.MoveToFinished:Wait()
-					wait(0.1)
-				        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-					repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
-					wait(5.5)
-				end
-			end
-			until Value == false
-		end
+		_G.AutoFarm = Value
+		AutoFarm()
 	end
 })
 
