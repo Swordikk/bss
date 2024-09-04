@@ -771,8 +771,7 @@ Tab:AddTextbox({
 	Default = "",
 	TextDisappear = false,
 	Callback = function(Value)
-		_G.JumpPower = Value
-		JumpPower()
+		
 	end
 })
 
