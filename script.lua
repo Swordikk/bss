@@ -7,7 +7,7 @@ local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 -- Delete Objects --
---game:GetService("Workspace").Decorations:Destroy()
+game:GetService("Workspace").Decorations:Destroy()
 
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
@@ -25,7 +25,7 @@ function AutoFarmSnowFlakes()
         for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
             if v.BackDecal.Texture == "rbxassetid://6087969886" then
                 HumanoidRootPart.CFrame = v.CFrame
-                wait(1.5)
+                wait(1)
             end
 		end         
 	end
@@ -37,7 +37,7 @@ function AutoFarmTickets()
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
             if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
                 HumanoidRootPart.CFrame = v.CFrame
-                wait(1.5)
+                wait(1)
 			end
 		end
 	end
