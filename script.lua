@@ -162,9 +162,9 @@ function KillCoconutCrab()
 		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+            if (v.Position-HumanoidRootPart.Position).Magnitude < 30 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
 				or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+				Humanoid:MoveTo(v.Position)
             end
         end
 	else
@@ -285,7 +285,7 @@ Tab:AddToggle({
 			wait(1)
 			repeat task.wait(0.01)
 				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-					if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+					if (v.Position-HumanoidRootPart.Position).Magnitude < 40 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
