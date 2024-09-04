@@ -172,6 +172,12 @@ function KillCoconutCrab()
 	end
 end
 
+function WalkSpeed()
+	while _G.WalkSpeed == true do
+	        Humanoid.WalkSpeed = Value
+        end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
