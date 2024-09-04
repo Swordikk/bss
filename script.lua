@@ -7,6 +7,7 @@ local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 -- Delete Objects --
+--game:GetService("Workspace").Decorations:Destroy()
 
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
@@ -44,7 +45,7 @@ function AutoFarm()
 			wait(0.4)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
-		wait(0.5)
+		wait(3)
 		repeat task.wait(0.01)
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
 				if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
