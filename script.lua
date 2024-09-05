@@ -232,13 +232,13 @@ function KillCoconutCrab()
 		local cocopad = Instance.new("Part", game:GetService("Workspace"))
 		cocopad.Name = "Coconut Part"
 		cocopad.Anchored = true
-		cocopad.Transparency = 1
-		cocopad.Size = Vector3.new(135, 1, 100)
+		cocopad.Transparency = 0.80
+		cocopad.Size = Vector3.new(4, 1, 4)
 		cocopad.CanCollide = true
-		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
-		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
+		cocopad.Position = Vector3.new(-265.52117919922, 103.91863250732, 480.86791992188)
+		HumanoidRootPart.Position = Position.new(-265.52117919922, 105.91863250732, 480.86791992188)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                        if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
+                        if (v.Position-HumanoidRootPart.Position).Magnitude < 30 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
 		                Humanoid:MoveTo(v.Position)
 			end
 		end
@@ -826,7 +826,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(unpack(Stickers))
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(unpack(Stickers))
 		end
 	end
 })
