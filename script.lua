@@ -234,8 +234,8 @@ function KillCoconutCrab()
 		cocopad.Transparency = 0.75
 		cocopad.Size = Vector3.new(10, 1, 10)
 		cocopad.CanCollide = true
-		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 350.86791992188)
-		HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 107.91863250732, 350.86791992188)
+		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 420.86791992188)
+		HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 107.91863250732, 420.86791992188)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if (v.Position-HumanoidRootPart.Position).Magnitude < 30 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
 		                Humanoid:MoveTo(v.Position)
