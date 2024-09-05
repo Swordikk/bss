@@ -833,7 +833,7 @@ Tab:AddToggle({
 	end
 })
 
---[[Tab:AddToggle({
+Tab:AddToggle({
 	Name = "Kill Snail",
 	Default = false,
 	Callback = function(Value)
@@ -855,7 +855,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		
 	end
-}
+})
 
 Tab:AddToggle({
 	Name = "Kill Windy",
@@ -863,7 +863,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		
 	end
-})--]]
+})
 
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
