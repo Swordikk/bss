@@ -20,8 +20,8 @@ end
 
 -- Functions --
 -- AutoFarm --
---[[function AutoFarm()
-end--]]
+function AutoFarm()
+end
 
 function AutoDig()
 	while _G.AutoDig == true do
@@ -268,6 +268,25 @@ local AutoSplinker = {
     }
 }
 
+local Stickers = {
+    [1] = 120,
+    [2] = 121,
+    [3] = 122,
+    [4] = 123,
+    [5] = 124,
+    [6] = 125,
+    [7] = 126,
+    [8] = 127,
+    [9] = 128,
+    [10] = 129,
+    [11] = 130,
+    [12] = 131,
+    [13] = 132,
+    [14] = 133,
+    [15] = 134,
+    [16] = 135
+}
+
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
@@ -467,6 +486,24 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Farm SnowFlakes",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFarmSnowFlakes = Value
+        AutoFarmSnowFlakes()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Farm Tickets",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFarmTickets = Value
+        AutoFarmTickets()
 	end
 })
 
@@ -777,42 +814,11 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "Auto Farm SnowFlakes",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoFarmSnowFlakes = Value
-        AutoFarmSnowFlakes()
-	end
-})
-
-Tab:AddToggle({
-	Name = "Auto Farm Tickets",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoFarmTickets = Value
-        AutoFarmTickets()
-	end
-})
-
-Tab:AddToggle({
 	Name = "Find all Stickers",
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(116)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(122)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(123)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(125)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(126)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(128)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(127) -- ДОДЕЛАТЬ!
+				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(unpack(Stickers))
 		end
 	end
 })
