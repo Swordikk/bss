@@ -468,7 +468,7 @@ Tab:AddToggle({
 	Name = "Farm Ant",
 	Default = false,
 	Callback = function(Value)
-		_G.FarmAnt = true
+		_G.FarmAnt = Value
 		FarmAnt()
 	end
 })
