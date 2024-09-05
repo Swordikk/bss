@@ -408,7 +408,7 @@ Tab:AddDropdown({
 	end    
 })
 
-Tab:AddToggle({
+-[[Tab:AddToggle({
 	Name = "Farm Bubbles",
 	Default = false,
 	Callback = function(Value)
@@ -470,7 +470,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		
 	end
-})
+})--]]
 
 -- Tab Teleports --
 local Tab = Window:MakeTab({
@@ -835,7 +835,7 @@ Tab:AddToggle({
 	end
 })
 
-Tab:AddToggle({
+--[[Tab:AddToggle({
 	Name = "Kill Snail",
 	Default = false,
 	Callback = function(Value)
@@ -865,7 +865,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		
 	end
-})
+})--]]
 
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
