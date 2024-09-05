@@ -163,7 +163,7 @@ function KillCoconutCrab()
 		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
                         if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
-		                Humanoid:MoveTo(v.Position
+		                Humanoid:MoveTo(v.Position)
 			end
 		end
 	end
