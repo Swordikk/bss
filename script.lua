@@ -18,18 +18,26 @@ for i = #hives, 1, -1 do
 	end 
 end
 
+-- Functions --
+-- AutoFarm --
 function AutoFarm()
 end
 
--- Functions --
+function AutoDig()
+	while _G.AutoDig == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
+        task.wait(0.2)
+	end
+end
+
 function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
 	task.wait(0.1)
-        for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if v.BackDecal.Texture == "rbxassetid://6087969886" then
-                HumanoidRootPart.CFrame = v.CFrame
-                wait(1)
-            end
+                for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+                        if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                                HumanoidRootPart.CFrame = v.CFrame
+                                wait(1)
+                        end
 		end         
 	end
 end
@@ -46,10 +54,15 @@ function AutoFarmTickets()
 	end
 end
 
-function AutoDig()
-	while _G.AutoDig == true do
-        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
-        task.wait(0.2)
+function FarmAnt()
+	if _G.AutoFarm == true then
+		local antpart = Instance.new("Part", workspace)
+                antpart.Name = "Ant Autofarm Part"
+                antpart.Position = Vector3.new(96, 47, 553)
+                antpart.Anchored = true
+                antpart.Size = Vector3.new(128, 1, 50)
+                antpart.Transparency = 1
+                antpart.CanCollide = false
 	end
 end
 
@@ -371,6 +384,92 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvertBalloon = Value
+	end
+})
+
+Tab:AddDropdown({
+	Name = "Equip Mask",
+	Default = "...",
+	Options = {"Demon Mask", "Diamond Mask", "Gummy Mask", "Bubble Mask", "Fire Mask", "Honey Mask"},
+	Callback = function(Value)
+		if Value == "Demon Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DemonMask))
+		elseif Value == "Diamond Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DiamondMask))
+		elseif Value == "Gummy Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(GummyMask))
+		elseif Value == "Bubble Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(BubbleMask))
+		elseif Value == "Fire Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(FireMask))
+		elseif Value == "Honey Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
+		end
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Farm Bubbles",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Flames",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Coconuts",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Precise Crosshairs",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Fuzzy Bombs",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Under Balloons",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Under Clouds",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Ant",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmAnt = true
+		FarmAnt()
 	end
 })
 
@@ -737,6 +836,38 @@ Tab:AddToggle({
 	end
 })
 
+Tab:AddToggle({
+	Name = "Kill Snail",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Kill Mondo",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
+Tab:AddToggle({
+	Name = "Kill Vicious",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+}
+
+Tab:AddToggle({
+	Name = "Kill Windy",
+	Default = false,
+	Callback = function(Value)
+		
+	end
+})
+
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
 	Name = "Auto Quest",
@@ -776,27 +907,6 @@ Tab:AddTextbox({
 		_G.JumpPower = Value
 		JumpPower()
 	end
-})
-
-Tab:AddDropdown({
-	Name = "Equip Mask",
-	Default = "...",
-	Options = {"Demon Mask", "Diamond Mask", "Gummy Mask", "Bubble Mask", "Fire Mask", "Honey Mask"},
-	Callback = function(Value)
-		if Value == "Demon Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DemonMask))
-		elseif Value == "Diamond Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DiamondMask))
-		elseif Value == "Gummy Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(GummyMask))
-		elseif Value == "Bubble Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(BubbleMask))
-		elseif Value == "Fire Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(FireMask))
-		elseif Value == "Honey Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
-		end
-	end    
 })
 
 -- Tab Themes --
