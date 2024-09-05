@@ -406,7 +406,7 @@ Tab:AddDropdown({
 	end    
 })
 
--[[Tab:AddToggle({
+--[[Tab:AddToggle({
 	Name = "Farm Bubbles",
 	Default = false,
 	Callback = function(Value)
