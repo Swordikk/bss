@@ -754,7 +754,7 @@ Tab:AddButton({
 
 Tab:AddButton({
 	Name = "Sprout Summoner",
-	Callback = function(Value)
+	Callback = function()
 		game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Sprout Summoner")
   	end    
 })
