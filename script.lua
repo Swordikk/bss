@@ -20,8 +20,8 @@ end
 
 -- Functions --
 -- AutoFarm --
-function AutoFarm()
-end
+--[[function AutoFarm()
+end--]]
 
 function AutoDig()
 	while _G.AutoDig == true do
@@ -54,7 +54,7 @@ function AutoFarmTickets()
 	end
 end
 
-function FarmAnt()
+--[[function FarmAnt()
 	if _G.AutoFarm == true then
 		local antpart = Instance.new("Part", workspace)
                 antpart.Name = "Ant Autofarm Part"
@@ -64,7 +64,7 @@ function FarmAnt()
                 antpart.Transparency = 1
                 antpart.CanCollide = false
 	end
-end
+end--]]
 
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
@@ -468,8 +468,7 @@ Tab:AddToggle({
 	Name = "Farm Ant",
 	Default = false,
 	Callback = function(Value)
-		_G.FarmAnt = Value
-		FarmAnt()
+		
 	end
 })
 
