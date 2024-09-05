@@ -175,6 +175,12 @@ function WalkSpeed()
         end
 end
 
+function JumpPower()
+	while _G.JumpPower do task.wait(.00000001)
+	        Humanoid.JumpPower = _G.JumpPower
+        end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -757,6 +763,16 @@ Tab:AddTextbox({
 	Callback = function(Value)
 		_G.WalkSpeed = Value
 		WalkSpeed()
+	end
+})
+
+Tab:AddTextbox({
+	Name = "JumpPower",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+		_G.JumpPower = Value
+		JumpPower()
 	end
 })
 
