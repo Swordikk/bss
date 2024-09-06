@@ -317,6 +317,16 @@ Tab:AddToggle({
 						end
 					end
 				end
+				if _G.FarmBubbles == true then
+					local Bubbles = game:GetService("Workspace").Particles:GetChildren()
+                	if #Bubbles > 0 then
+                    	for i, v in pairs(Bubbles) do
+                        	if v.Name == "Bubble" then
+                            	Humanoid:MoveTo(v.Position)
+                        	end
+                    	end
+                	end
+				end
 				wait(0.01)
 			end
 			if _G.AutoConvert == true then
