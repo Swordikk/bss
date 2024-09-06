@@ -295,23 +295,23 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(1)
-            local timer = 0
-			while true do
-				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-					if (HumanoidRootPart.Position - v.Position).magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+            while task.wait(0.01) do
+                local tokens = game:GetService("Workspace").Collectibles:GetChildren()
+                if #tokens > 0 then
+                    for i, v in pairs(tokens) do
+                        if (HumanoidRootPart.Position - v.Position).magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
 						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
 						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
 						Humanoid:MoveTo(v.Position)
-					end
-				end
-                timer = timer + 1
-                if Pollen.Value >= Capacity.Value then
-                    if timer >= 5 and Pollen.Value >= Capacity.Value then
-                        break
+                        end
                     end
+                end
+            
+                if Pollen.Value >= Capacity.Value and task.wait(5) then
+                    break
                 end
             end
             repeat wait() until Pollen.Value >= Capacity.Value
