@@ -50,7 +50,7 @@ function AutoFarm()
         wait(3)
         repeat task.wait(0.01)
             for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                if (v.Position-HumanoidRootPart.Position).Magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+                if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
                     v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
                     v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
                     v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
