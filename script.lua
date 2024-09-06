@@ -90,7 +90,7 @@ function AutoDig()
 	end
 end
 
-function AutoFarmSnowFlakes()
+function AutoFarmSnowFlakes() -- Доделать!
 	while _G.AutoFarmSnowFlakes == true do
 	task.wait(0.1)
         for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -102,7 +102,7 @@ function AutoFarmSnowFlakes()
 	end
 end
 
-function AutoFarmTickets()
+function AutoFarmTickets() -- Доделать!
 	while _G.AutoFarmTickets == true do
 	task.wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -117,12 +117,12 @@ end
 --[[function FarmAnt()
 	if _G.AutoFarm == true then
 		local antpart = Instance.new("Part", workspace)
-                antpart.Name = "Ant Autofarm Part"
-                antpart.Position = Vector3.new(96, 47, 553)
-                antpart.Anchored = true
-                antpart.Size = Vector3.new(128, 1, 50)
-                antpart.Transparency = 1
-                antpart.CanCollide = false
+        antpart.Name = "Ant Autofarm Part"
+        antpart.Position = Vector3.new(96, 47, 553)
+        antpart.Anchored = true
+        antpart.Size = Vector3.new(128, 1, 50)
+        antpart.Transparency = 1
+        antpart.CanCollide = false
 	end
 end--]]
 
@@ -226,6 +226,8 @@ function AutoClaimGingerbreadHouse()
     end
 end
 
+-- Function Combat --
+
 function KillCoconutCrab()
 	if _G.KillCoconutCrab == true then
 		local cocopad = Instance.new("Part", game:GetService("Workspace"))
@@ -244,15 +246,17 @@ function KillCoconutCrab()
 	end
 end
 
+-- Function Misc --
+
 function WalkSpeed()
 	while _G.WalkSpeed do task.wait(.00000001)
-	        Humanoid.WalkSpeed = _G.WalkSpeed
+	    Humanoid.WalkSpeed = _G.WalkSpeed
     end
 end
 
 function JumpPower()
 	while _G.JumpPower do task.wait(.00000001)
-	        Humanoid.JumpPower = _G.JumpPower
+	    Humanoid.JumpPower = _G.JumpPower
     end
 end
 
@@ -305,25 +309,6 @@ local HoneyMask = {
     }
 }
 
--- Tab Main --
-local Tab = Window:MakeTab({
-	Name = "Home",
-	Icon = "rbxassetid://4370345144", 
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "     MAIN                                                              			CREDITS"
-})
-
-local Section = Tab:AddSection({
-	Name = "     Thanks you for using my script!                        My Discord: swordik_"
-})
-
-local Section = Tab:AddSection({
-	Name = "     Version: v1.0.0"
-})
-
 local AutoSplinker = {
     [1] = {
         ["Name"] = "Sprinkler Builder"
@@ -352,6 +337,25 @@ local Stickers = {
     [19] = 138,
     [20] = 139
 }
+
+-- Tab Main --
+local Tab = Window:MakeTab({
+	Name = "Home",
+	Icon = "rbxassetid://4370345144", 
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "     MAIN                                                              			CREDITS"
+})
+
+local Section = Tab:AddSection({
+	Name = "     Thanks you for using my script!                        My Discord: swordik_"
+})
+
+local Section = Tab:AddSection({
+	Name = "     Version: v1.0.0"
+})
 
 -- Tab Farming --
 local Tab = Window:MakeTab({
