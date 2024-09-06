@@ -292,21 +292,23 @@ Tab:AddToggle({
 				wait(0.4)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
-			wait(3)
+			wait(1)
 			repeat task.wait(0.01)
 				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-					if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+					if (v.Position-HumanoidRootPart.Position).Magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" then
+                        Humanoid:MoveTo(v.Position)
+                    else
+                        (v.Position-HumanoidRootPart.Position).Magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1442764904" or 
 						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
 						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
 						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
-						Humanoid:MoveTo(v.Position)
+                        Humanoid:MoveTo(v.Position)
 					end
 				end
 			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-			wait(0.5)
+			--repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 			if _G.AutoConvert == true then
 				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
 					if _G.Selectfield == "Pine Tree Forest" then
@@ -323,7 +325,7 @@ Tab:AddToggle({
 					Humanoid.MoveToFinished:Wait()
 					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-					repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+					repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 					wait(5.5)
 				end
 			end
