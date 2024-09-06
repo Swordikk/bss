@@ -31,27 +31,33 @@ function AutoDig()
 	end
 end
 
-function AutoFarmSnowFlakes() -- Доделать!
-	while _G.AutoFarmSnowFlakes == true do
-	task.wait(0.1)
-        for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if v.BackDecal.Texture == "rbxassetid://6087969886" then
-                HumanoidRootPart.CFrame = v.CFrame
-                wait(1)
+function AutoFarmSnowFlakes()
+    while _G.AutoFarmSnowFlakes == true do
+        local snowflakes = game:GetService("Workspace").Collectibles:GetChildren()
+        if #snowflakes > 0 then
+            for i, v in pairs(snowflakes) do
+                if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                    HumanoidRootPart.CFrame = v.CFrame
+                    wait(1)
+                end
             end
-		end         
-	end
+        end
+        wait(0.1)
+    end
 end
 
-function AutoFarmTickets() -- Доделать!
+function AutoFarmTickets()
 	while _G.AutoFarmTickets == true do
-	task.wait(0.1)
-		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
-                HumanoidRootPart.CFrame = v.CFrame
-                wait(1)
+		local tickets = game:GetService("Workspace").Collectibles:GetChildren()
+		if #tickets > 0 then
+			for i,v in pairs(tickets) do
+            	if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
+                	HumanoidRootPart.CFrame = v.CFrame
+                	wait(1)
+				end
 			end
 		end
+		wait(0.1)
 	end
 end
 
