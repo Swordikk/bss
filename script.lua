@@ -20,8 +20,8 @@ end
 function AutoFarm()
 end
 
--- Functions --
-function AutoFarmSnowFlakes()
+-- Functions AutoFarm --
+function AutoFarmSnowFlakes() -- Доделать!
 	while _G.AutoFarmSnowFlakes == true do
 	task.wait(0.1)
         for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -33,7 +33,7 @@ function AutoFarmSnowFlakes()
 	end
 end
 
-function AutoFarmTickets()
+function AutoFarmTickets() -- Доделать!
 	while _G.AutoFarmTickets == true do
 	task.wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -155,20 +155,26 @@ function KillCoconutCrab()
 		local cocopad = Instance.new("Part", game:GetService("Workspace"))
 		cocopad.Name = "Coconut Part"
 		cocopad.Anchored = true
-		cocopad.Transparency = 1
-		cocopad.Size = Vector3.new(135, 1, 100)
+		cocopad.Transparency = 0.75
+		cocopad.Size = Vector3.new(10, 1, 10)
 		cocopad.CanCollide = true
-		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
-		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
-		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
-				or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
-				game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
-            end
-        end
-	else
-		game:GetService("Workspace").Part:Destroy()
+		cocopad.Position = Vector3.new(-265.52117919922, 100.91863250732, 450.86791992188)
+		HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 102.91863250732, 450.86791992188)
 	end
+end
+
+-- Function Misc --
+
+function WalkSpeed()
+	while _G.WalkSpeed do task.wait(.00000001)
+	    Humanoid.WalkSpeed = _G.WalkSpeed
+    end
+end
+
+function JumpPower()
+	while _G.JumpPower do task.wait(.00000001)
+	    Humanoid.JumpPower = _G.JumpPower
+    end
 end
 
 -- Local Tables  --
@@ -220,6 +226,12 @@ local HoneyMask = {
     }
 }
 
+local AutoSplinker = {
+    [1] = {
+        ["Name"] = "Sprinkler Builder"
+    }
+}
+
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -238,12 +250,6 @@ local Section = Tab:AddSection({
 local Section = Tab:AddSection({
 	Name = "     Version: v1.0.0"
 })
-
-local AutoSplinker = {
-    [1] = {
-        ["Name"] = "Sprinkler Builder"
-    }
-}
 
 -- Tab Farming --
 local Tab = Window:MakeTab({
@@ -359,6 +365,70 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvertBalloon = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Bubbles",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmBubbles = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Flames",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmFlames = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Coconuts",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmCoconuts = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Precise Crosshairs",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmPreciseCrosshairs = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Fuzzy Bombs",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmFuzzyBombs = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Under Balloons",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmUnderBalloons = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Under Clouds",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmUnderClouds = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Farm Ant",
+	Default = false,
+	Callback = function(Value)
+		_G.FarmAnt = Value
 	end
 })
 
@@ -725,6 +795,38 @@ Tab:AddToggle({
 	end
 })
 
+Tab:AddToggle({
+	Name = "Kill Snail",
+	Default = false,
+	Callback = function(Value)
+		_G.KillSnail = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Kill Mondo",
+	Default = false,
+	Callback = function(Value)
+		_G.KillMondo = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Kill Vicious",
+	Default = false,
+	Callback = function(Value)
+		_G.KillVicious = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Kill Windy",
+	Default = false,
+	Callback = function(Value)
+		_G.KillWindy = Value
+	end
+})
+
 -- Tab Auto Quest --
 local Tab = Window:MakeTab({
 	Name = "Auto Quest",
@@ -746,33 +848,23 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Active Speed",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			_G.ActiveSpeed = true
-		else
-			_G.ActiveSpeed = false
-		end
-	end    
-})
-
 Tab:AddTextbox({
 	Name = "WalkSpeed",
 	Default = "",
 	TextDisappear = false,
 	Callback = function(Value)
-		while wait() do
-			if _G.ActiveSpeed == true then
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-			else
-				break
-			end
-		end
-		if _G.ActiveSpeed == false then
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 28
-		end
+		_G.WalkSpeed = Value
+		WalkSpeed()
+	end
+})
+
+Tab:AddTextbox({
+	Name = "JumpPower",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+		_G.JumpPower = Value
+		JumpPower()
 	end
 })
 
