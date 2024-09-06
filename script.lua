@@ -7,7 +7,6 @@ local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 -- Delete Objects --
-game.Workspace.FieldDecos:Destroy()
 
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
@@ -18,79 +17,11 @@ for i = #hives, 1, -1 do
 	end 
 end
 
--- FUNCTIONS --
--- Function AutoFarm --
 function AutoFarm()
-	while _G.AutoFarm == true do
-		if _G.Selectfield == "Pine Tree Forest" then
-			Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
-			Humanoid.MoveToFinished:Wait()
-			Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
-			Humanoid.MoveToFinished:Wait()
-		end
-		wait(0.5)
-		if _G.AutoSplinker == true then
-			Humanoid.Jump = true
-			wait(0.4)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
-		end
-		wait(1)
-		repeat task.wait(0.01)
-			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
-					v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
-					v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
-					v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
-					v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
-					v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
-					Humanoid:MoveTo(v.Position)
-				end
-			end
-		until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-		repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-		if _G.AutoConvert == true then
-			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
-				if _G.Selectfield == "Pine Tree Forest" then
-					Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
-					Humanoid.MoveToFinished:Wait()
-					Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
-					Humanoid.MoveToFinished:Wait()
-					Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
-					Humanoid.MoveToFinished:Wait()
-					Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
-					Humanoid.MoveToFinished:Wait()
-				end
-				Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
-				Humanoid.MoveToFinished:Wait()
-				wait(0.1)
-				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-				repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
-				wait(5.5)
-			end
-		end
-	end
 end
 
-function AutoDig()
-	while _G.AutoDig == true do
-        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
-        task.wait(0.2)
-	end
-end
-
-function AutoFarmSnowFlakes() -- Доделать!
+-- Functions --
+function AutoFarmSnowFlakes()
 	while _G.AutoFarmSnowFlakes == true do
 	task.wait(0.1)
         for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -102,7 +33,7 @@ function AutoFarmSnowFlakes() -- Доделать!
 	end
 end
 
-function AutoFarmTickets() -- Доделать!
+function AutoFarmTickets()
 	while _G.AutoFarmTickets == true do
 	task.wait(0.1)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
@@ -114,19 +45,12 @@ function AutoFarmTickets() -- Доделать!
 	end
 end
 
---[[function FarmAnt()
-	if _G.AutoFarm == true then
-		local antpart = Instance.new("Part", workspace)
-        antpart.Name = "Ant Autofarm Part"
-        antpart.Position = Vector3.new(96, 47, 553)
-        antpart.Anchored = true
-        antpart.Size = Vector3.new(128, 1, 50)
-        antpart.Transparency = 1
-        antpart.CanCollide = false
+function AutoDig()
+	while _G.AutoDig == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ToolCollect"):FireServer()
+        task.wait(0.2)
 	end
-end--]]
-
--- Function Dispensers --
+end
 
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
@@ -226,38 +150,25 @@ function AutoClaimGingerbreadHouse()
     end
 end
 
--- Function Combat --
-
 function KillCoconutCrab()
 	if _G.KillCoconutCrab == true then
 		local cocopad = Instance.new("Part", game:GetService("Workspace"))
 		cocopad.Name = "Coconut Part"
 		cocopad.Anchored = true
-		cocopad.Transparency = 0.75
-		cocopad.Size = Vector3.new(10, 1, 10)
+		cocopad.Transparency = 1
+		cocopad.Size = Vector3.new(135, 1, 100)
 		cocopad.CanCollide = true
-		cocopad.Position = Vector3.new(-265.52117919922, 100.91863250732, 450.86791992188)
-		HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 102.91863250732, 450.86791992188)
+		cocopad.Position = Vector3.new(-265.52117919922, 105.91863250732, 480.86791992188)
+		HumanoidRootPart.CFrame = CFrame.new(-254.646957, 109.892967, 448.79892, -0.998998344, -2.36307951e-08, 0.0447468422, -2.06483168e-08, 1, 6.71144704e-08, -0.0447468422, 6.61232988e-08, -0.998998344)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-            if (v.Position-HumanoidRootPart.Position).Magnitude < 30 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
-		        Humanoid:MoveTo(v.Position)
-			end
-		end
+            if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910"
+				or v.BackDecal.Texture == "http://www.roblox.com/asset/?id=253828517" then
+				game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Position)
+            end
+        end
+	else
+		game:GetService("Workspace").Part:Destroy()
 	end
-end
-
--- Function Misc --
-
-function WalkSpeed()
-	while _G.WalkSpeed do task.wait(.00000001)
-	    Humanoid.WalkSpeed = _G.WalkSpeed
-    end
-end
-
-function JumpPower()
-	while _G.JumpPower do task.wait(.00000001)
-	    Humanoid.JumpPower = _G.JumpPower
-    end
 end
 
 -- Local Tables  --
@@ -309,35 +220,6 @@ local HoneyMask = {
     }
 }
 
-local AutoSplinker = {
-    [1] = {
-        ["Name"] = "Sprinkler Builder"
-    }
-}
-
-local Stickers = {
-    [1] = 120,
-    [2] = 121,
-    [3] = 122,
-    [4] = 123,
-    [5] = 124,
-    [6] = 125,
-    [7] = 126,
-    [8] = 127,
-    [9] = 128,
-    [10] = 129,
-    [11] = 130,
-    [12] = 131,
-    [13] = 132,
-    [14] = 133,
-    [15] = 134,
-    [16] = 135,
-    [17] = 136,
-    [18] = 137,
-    [19] = 138,
-    [20] = 139
-}
-
 -- Tab Main --
 local Tab = Window:MakeTab({
 	Name = "Home",
@@ -357,6 +239,12 @@ local Section = Tab:AddSection({
 	Name = "     Version: v1.0.0"
 })
 
+local AutoSplinker = {
+    [1] = {
+        ["Name"] = "Sprinkler Builder"
+    }
+}
+
 -- Tab Farming --
 local Tab = Window:MakeTab({
 	Name = "Farming",
@@ -368,8 +256,67 @@ Tab:AddToggle({
 	Name = "Auto Farm",
 	Default = false,
 	Callback = function(Value)
-		_G.AutoFarm = Value
-		AutoFarm()
+		while Value == true do
+			if _G.Selectfield == "Pine Tree Forest" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-142.89202880859375, 20.677043914794922, 56.8779525756835))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-241.83279418945312, 35.014339447021484, 55.9289436340332))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-236.2366943359375, 68.47433471679688, -88.9946517944336))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
+				Humanoid.MoveToFinished:Wait()
+			end
+			wait(0.5)
+			if _G.AutoSplinker == true then
+				Humanoid.Jump = true
+				wait(0.4)
+				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
+			end
+			wait(3)
+			repeat task.wait(0.01)
+				for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
+					if (v.Position-HumanoidRootPart.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+						v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
+						v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
+						v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
+						v.BackDecal.Texture == "rbxassetid://1472580249" or v.BackDecal.Texture == "rbxassetid://1472256444" or
+						v.BackDecal.Texture == "rbxassetid://8083436978" or v.BackDecal.Texture == "rbxassetid://2000457501" then
+						Humanoid:MoveTo(v.Position)
+					end
+				end
+			until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+			repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+			wait(0.5)
+			if _G.AutoConvert == true then
+				if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+					if _G.Selectfield == "Pine Tree Forest" then
+						Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-342.8245544433594, 20.424341201782227, 95.5984115600586))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
+						Humanoid.MoveToFinished:Wait()
+					end
+					Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
+					Humanoid.MoveToFinished:Wait()
+					wait(0.1)
+					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
+					repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+					wait(5.5)
+				end
+			end
+		end
 	end
 })
 
@@ -412,109 +359,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvertBalloon = Value
-	end
-})
-
-Tab:AddDropdown({
-	Name = "Equip Mask",
-	Default = "...",
-	Options = {"Demon Mask", "Diamond Mask", "Gummy Mask", "Bubble Mask", "Fire Mask", "Honey Mask"},
-	Callback = function(Value)
-		if Value == "Demon Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DemonMask))
-		elseif Value == "Diamond Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DiamondMask))
-		elseif Value == "Gummy Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(GummyMask))
-		elseif Value == "Bubble Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(BubbleMask))
-		elseif Value == "Fire Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(FireMask))
-		elseif Value == "Honey Mask" then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
-		end
-	end    
-})
-
-Tab:AddToggle({
-	Name = "Farm Bubbles",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmBubbles = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Flames",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmFlames = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Coconuts",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmCoconuts = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Precise Crosshairs",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmPreciseCrosshairs = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Fuzzy Bombs",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmFuzzyBombs = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Under Balloons",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmUnderBalloons = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Under Clouds",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmUnderClouds = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Ant",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmAnt = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Auto Farm SnowFlakes",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoFarmSnowFlakes = Value
-        AutoFarmSnowFlakes()
-	end
-})
-
-Tab:AddToggle({
-	Name = "Auto Farm Tickets",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoFarmTickets = Value
-        AutoFarmTickets()
 	end
 })
 
@@ -799,7 +643,7 @@ Tab:AddButton({
 
 Tab:AddButton({
 	Name = "Sprout Summoner",
-	Callback = function()
+	Callback = function(Value)
 		game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Sprout Summoner")
   	end    
 })
@@ -825,11 +669,42 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
+	Name = "Auto Farm SnowFlakes",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFarmSnowFlakes = Value
+        AutoFarmSnowFlakes()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Farm Tickets",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFarmTickets = Value
+        AutoFarmTickets()
+	end
+})
+
+Tab:AddToggle({
 	Name = "Find all Stickers",
 	Default = false,
 	Callback = function(Value)
 		if Value == true then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(unpack(Stickers))
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(116)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(120)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(119)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(122)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(123)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(125)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(126)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(128)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(118)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(117)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(127) -- ДОДЕЛАТЬ!
 		end
 	end
 })
@@ -847,38 +722,6 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.KillCoconutCrab = Value
 		KillCoconutCrab()
-	end
-})
-
-Tab:AddToggle({
-	Name = "Kill Snail",
-	Default = false,
-	Callback = function(Value)
-		_G.KillSnail = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Kill Mondo",
-	Default = false,
-	Callback = function(Value)
-		_G.KillMondo = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Kill Vicious",
-	Default = false,
-	Callback = function(Value)
-		_G.KillVicious = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Kill Windy",
-	Default = false,
-	Callback = function(Value)
-		_G.KillWindy = Value
 	end
 })
 
@@ -903,24 +746,55 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab:AddToggle({
+	Name = "Active Speed",
+	Default = false,
+	Callback = function(Value)
+		if Value == true then
+			_G.ActiveSpeed = true
+		else
+			_G.ActiveSpeed = false
+		end
+	end    
+})
+
 Tab:AddTextbox({
 	Name = "WalkSpeed",
 	Default = "",
 	TextDisappear = false,
 	Callback = function(Value)
-		_G.WalkSpeed = Value
-		WalkSpeed()
+		while wait() do
+			if _G.ActiveSpeed == true then
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+			else
+				break
+			end
+		end
+		if _G.ActiveSpeed == false then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 28
+		end
 	end
 })
 
-Tab:AddTextbox({
-	Name = "JumpPower",
-	Default = "",
-	TextDisappear = false,
+Tab:AddDropdown({
+	Name = "Equip Mask",
+	Default = "...",
+	Options = {"Demon Mask", "Diamond Mask", "Gummy Mask", "Bubble Mask", "Fire Mask", "Honey Mask"},
 	Callback = function(Value)
-		_G.JumpPower = Value
-		JumpPower()
-	end
+		if Value == "Demon Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DemonMask))
+		elseif Value == "Diamond Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(DiamondMask))
+		elseif Value == "Gummy Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(GummyMask))
+		elseif Value == "Bubble Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(BubbleMask))
+		elseif Value == "Fire Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(FireMask))
+		elseif Value == "Honey Mask" then
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
+		end
+	end    
 })
 
 -- Tab Themes --
