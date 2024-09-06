@@ -5,6 +5,8 @@ local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Sim
 -- Local --
 local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+local Capacity = game:GetService("Players").LocalPlayer.CoreStats.Capacity
+local Pollen = game:GetService("Players").LocalPlayer.CoreStats.Pollen
 
 -- Delete Objects --
 game.Workspace.FieldDecos:Destroy()
@@ -57,10 +59,10 @@ function AutoFarm()
                     Humanoid:MoveTo(v.Position)
                 end
             end
-        until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-        repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+        until Pollen.Value >= Capacity.Value
+        repeat wait() until Pollen.Value >= Capacity.Value
         if _G.AutoConvert == true then
-            if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
+            if Pollen.Value >= Capacity.Value then
                 if _G.Selectfield == "Pine Tree Forest" then
                     Humanoid:MoveTo(Vector3.new(-338.9832763671875, 68.47433471679688, -72.74992370605469))
                     Humanoid.MoveToFinished:Wait()
@@ -75,7 +77,7 @@ function AutoFarm()
                 Humanoid.MoveToFinished:Wait()
                 wait(0.1)
                 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-                repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+                repeat wait() until Pollen.Value == 0
                 wait(5.5)
             end
         end
