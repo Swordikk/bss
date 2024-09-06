@@ -46,10 +46,10 @@ function AutoFarm()
 			wait(0.4)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
-		wait(1)
+		wait(3)
 		repeat task.wait(0.01)
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if (HumanoidRootPart.Position - v.Position).magnitude < 40 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+				if (HumanoidRootPart.Position - v.Position).magnitude <= 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 					v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 					v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 					v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
@@ -59,7 +59,7 @@ function AutoFarm()
 				end
 			end
 		until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
-		repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
+		repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value
 		if _G.AutoConvert == true then
 			if game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value >= game:GetService("Players").LocalPlayer.CoreStats.Capacity.Value then
 				if _G.Selectfield == "Pine Tree Forest" then
