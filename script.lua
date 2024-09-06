@@ -305,9 +305,7 @@ Tab:AddToggle({
 				local tokens = game:GetService("Workspace").Collectibles:GetChildren()
 				if #tokens > 0 then
 					for i, v in pairs(tokens) do
-						if (HumanoidRootPart.Position - v.Position).magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" then
-							Humanoid:MoveTo(v.Position)
-						else (HumanoidRootPart.Position - v.Position).magnitude <= 40 and (
+						if (HumanoidRootPart.Position - v.Position).magnitude <= 40 and (
 							v.BackDecal.Texture == "rbxassetid://1629547638" or
 							v.BackDecal.Texture == "rbxassetid://1442764904" or
 							v.BackDecal.Texture == "rbxassetid://14442725244" or
