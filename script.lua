@@ -46,10 +46,10 @@ function AutoFarm()
 			wait(0.4)
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 		end
-		wait(3)
+		wait(1)
 		repeat task.wait(0.01)
 			for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-				if (HumanoidRootPart.Position - v.Position).magnitude <= 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
+				if (HumanoidRootPart.Position - v.Position).Magnitude < 50 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://1442764904" or 
 					v.BackDecal.Texture == "rbxassetid://14442725244" or v.BackDecal.Texture == "rbxassetid://1442725244" or 
 					v.BackDecal.Texture == "rbxassetid://1442859163" or v.BackDecal.Texture == "rbxassetid://1629649299" or
 					v.BackDecal.Texture == "rbxassetid://1472532912" or v.BackDecal.Texture == "rbxassetid://1472425802" or
@@ -76,7 +76,7 @@ function AutoFarm()
 				Humanoid.MoveToFinished:Wait()
 				wait(0.1)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
-				repeat wait() until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
+				repeat wait(1) until game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value == 0
 				wait(5.5)
 			end
 		end
@@ -117,12 +117,12 @@ end
 --[[function FarmAnt()
 	if _G.AutoFarm == true then
 		local antpart = Instance.new("Part", workspace)
-        antpart.Name = "Ant Autofarm Part"
-        antpart.Position = Vector3.new(96, 47, 553)
-        antpart.Anchored = true
-        antpart.Size = Vector3.new(128, 1, 50)
-        antpart.Transparency = 1
-        antpart.CanCollide = false
+                antpart.Name = "Ant Autofarm Part"
+                antpart.Position = Vector3.new(96, 47, 553)
+                antpart.Anchored = true
+                antpart.Size = Vector3.new(128, 1, 50)
+                antpart.Transparency = 1
+                antpart.CanCollide = false
 	end
 end--]]
 
@@ -237,7 +237,7 @@ function KillCoconutCrab()
 		cocopad.Position = Vector3.new(-265.52117919922, 100.91863250732, 450.86791992188)
 		HumanoidRootPart.CFrame = CFrame.new(-265.52117919922, 102.91863250732, 450.86791992188)
 		for i,v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-                if (v.Position-HumanoidRootPart.Position).Magnitude < 20 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
+            if (v.Position-HumanoidRootPart.Position).Magnitude < 30 and v.BackDecal.Texture == "rbxassetid://1629547638" or v.BackDecal.Texture == "rbxassetid://2319083910" then
 		        Humanoid:MoveTo(v.Position)
 			end
 		end
@@ -247,13 +247,13 @@ end
 function WalkSpeed()
 	while _G.WalkSpeed do task.wait(.00000001)
 	        Humanoid.WalkSpeed = _G.WalkSpeed
-        end
+    end
 end
 
 function JumpPower()
 	while _G.JumpPower do task.wait(.00000001)
 	        Humanoid.JumpPower = _G.JumpPower
-        end
+    end
 end
 
 -- Local Tables  --
@@ -436,7 +436,7 @@ Tab:AddToggle({
 	Name = "Farm Bubbles",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmBubbles = Value
 	end
 })
 
@@ -444,7 +444,7 @@ Tab:AddToggle({
 	Name = "Farm Flames",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmFlames = Value
 	end
 })
 
@@ -452,7 +452,7 @@ Tab:AddToggle({
 	Name = "Farm Coconuts",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmCoconuts = Value
 	end
 })
 
@@ -460,7 +460,7 @@ Tab:AddToggle({
 	Name = "Farm Precise Crosshairs",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmPreciseCrosshairs = Value
 	end
 })
 
@@ -468,7 +468,7 @@ Tab:AddToggle({
 	Name = "Farm Fuzzy Bombs",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmFuzzyBombs = Value
 	end
 })
 
@@ -476,7 +476,7 @@ Tab:AddToggle({
 	Name = "Farm Under Balloons",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmUnderBalloons = Value
 	end
 })
 
@@ -484,7 +484,7 @@ Tab:AddToggle({
 	Name = "Farm Under Clouds",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmUnderClouds = Value
 	end
 })
 
@@ -492,7 +492,7 @@ Tab:AddToggle({
 	Name = "Farm Ant",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.FarmAnt = Value
 	end
 })
 
@@ -850,7 +850,7 @@ Tab:AddToggle({
 	Name = "Kill Snail",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.KillSnail = Value
 	end
 })
 
@@ -858,7 +858,7 @@ Tab:AddToggle({
 	Name = "Kill Mondo",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.KillMondo = Value
 	end
 })
 
@@ -866,7 +866,7 @@ Tab:AddToggle({
 	Name = "Kill Vicious",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.KillVicious = Value
 	end
 })
 
@@ -874,7 +874,7 @@ Tab:AddToggle({
 	Name = "Kill Windy",
 	Default = false,
 	Callback = function(Value)
-		
+		_G.KillWindy = Value
 	end
 })
 
