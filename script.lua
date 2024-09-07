@@ -190,6 +190,21 @@ function JumpPower()
     end
 end
 
+function DetectViciousBee()
+    while _G.DetectingViciousBee == true do
+		local ViciousBee = game:GetService("Workspace").Particles.WTs:FindFirstChild("WaitingThorn")
+    	if ViciousBee then
+			OrionLib:MakeNotification({
+				Name = "Detected",
+				Content = "Vicious Bee",
+				Image = "rbxassetid://3944668821",
+				Time = 5
+			})
+        	wait(250) -- Ждем 250 секунд
+    	end
+	end
+end
+
 -- Local Tables  --
 local DemonMask = {
     [1] = "Equip",
@@ -310,7 +325,7 @@ Tab:AddToggle({
 						elseif
 						(HumanoidRootPart.Position - v.Position).magnitude <= 40 and (
 							v.BackDecal.Texture == "rbxassetid://1442764904" or
-							v.BackDecal.Texture == "rbxassetid://14442725244" or
+							v.BackDecal.Texture == "rbxassetid://1442863423" or
 							v.BackDecal.Texture == "rbxassetid://1442725244" or
 							v.BackDecal.Texture == "rbxassetid://1442859163" or
 							v.BackDecal.Texture == "rbxassetid://1629649299" or
@@ -335,6 +350,16 @@ Tab:AddToggle({
                     	end
                 	end
 				end
+				if _G.FarmFuzzyBombs == true then
+					local FuzzyBombs = game:GetService("Workspace").Particles:GetChildren()
+                	if #FuzzyBombs > 0 then
+                    	for i, v in pairs(FuzzyBombs) do
+                        	if v.Name == "DustBunnyInstance" then
+                        		Humanoid:MoveTo(v.Position)
+                        	end
+                    	end
+                	end
+				end
 				wait(0.01)
 			end
 			if _G.AutoConvert == true then
@@ -354,7 +379,7 @@ Tab:AddToggle({
 					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
-					wait(5.5)
+					wait(5)
 				end
 			end
 		end
@@ -897,6 +922,15 @@ Tab:AddTextbox({
 	Callback = function(Value)
 		_G.JumpPower = Value
 		JumpPower()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Detecting Vicious Bee",
+	Default = false,
+	Callback = function(Value)
+		_G.DetectingViciousBee = Value
+		DetectingViciousBee()
 	end
 })
 
