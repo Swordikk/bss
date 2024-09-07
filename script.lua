@@ -305,7 +305,7 @@ Tab:AddToggle({
 				local tokens = game:GetService("Workspace").Collectibles:GetChildren()
 				if #tokens > 0 then
 					for i, v in pairs(tokens) do
-						if (HumanoidRootPart.Position - v.Position).magnitude <= 40 and v.BackDecal.Texture == "rbxassetid://1629547638" then
+						if v.BackDecal.Texture == "rbxassetid://1629547638" then
 							Humanoid:MoveTo(v.Position)
 						elseif
 						(HumanoidRootPart.Position - v.Position).magnitude <= 40 and (
@@ -330,7 +330,7 @@ Tab:AddToggle({
                 	if #Bubbles > 0 then
                     	for i, v in pairs(Bubbles) do
                         	if v.Name == "Bubble" then
-                            	Humanoid:MoveTo(v.Position)
+                        		Humanoid:MoveTo(v.Position)
                         	end
                     	end
                 	end
