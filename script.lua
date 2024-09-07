@@ -907,7 +907,7 @@ local Tab = Window:MakeTab({
 
 Tab:AddToggle({
 	Name = "Anti-AFK",
-	Default = "",
+	Default = false,
 	Callback = function(Value)
 		if Value == true then
 			while not game:IsLoaded() do wait() end
