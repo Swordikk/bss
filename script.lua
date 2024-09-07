@@ -905,10 +905,9 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddTextbox({
+Tab:AddToggle({
 	Name = "Anti-AFK",
 	Default = "",
-	TextDisappear = false,
 	Callback = function(Value)
 		if Value == true then
 			while not game:IsLoaded() do wait() end
