@@ -195,8 +195,23 @@ function DetectViciousBee()
 		local ViciousBee = game:GetService("Workspace").Particles.WTs:FindFirstChild("WaitingThorn")
     	if ViciousBee then
 			OrionLib:MakeNotification({
-				Name = "Detected",
-				Content = "Vicious Bee",
+				Name = "Vicious Bee",
+				Content = "Detected",
+				Image = "rbxassetid://3944668821",
+				Time = 5
+			})
+        	wait(250) -- Ждем 250 секунд
+    	end
+	end
+end
+
+function DetectingWindyBee()
+    while _G.DetectingWindyBee == true do
+		local WindyBee = game:GetService("Workspace").NPCBees:FindFirstChild("Windy")
+    	if WindyBee then
+			OrionLib:MakeNotification({
+				Name = "Windy Bee",
+				Content = "Detected",
 				Image = "rbxassetid://3944668821",
 				Time = 5
 			})
@@ -339,6 +354,14 @@ Tab:AddToggle({
 				Humanoid.MoveToFinished:Wait()
 			elseif _G.Selectfield == "Bamboo Field" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(132.963409, 18.1719551, -25.6000061))
 				Humanoid.MoveToFinished:Wait()
 			elseif _G.Selectfield == "Spider Field" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
@@ -1031,6 +1054,15 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.DetectingViciousBee = Value
+		DetectingViciousBee()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Detecting Vicious Bee",
+	Default = false,
+	Callback = function(Value)
+		_G.DetectingWindyBee = Value
 		DetectingViciousBee()
 	end
 })
