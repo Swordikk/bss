@@ -187,7 +187,7 @@ function JumpPower()
     end
 end
 
-function DetectViciousBee()
+function DetectingViciousBee()
     while _G.DetectingViciousBee == true do
 		local ViciousBee = game:GetService("Workspace").Particles.WTs:FindFirstChild("WaitingThorn")
     	if ViciousBee then
