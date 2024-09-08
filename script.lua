@@ -1086,11 +1086,11 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "Detecting Vicious Bee",
+	Name = "Detecting Windy Bee",
 	Default = false,
 	Callback = function(Value)
 		_G.DetectingWindyBee = Value
-		DetectingViciousBee()
+		DetectingWindyBee()
 	end
 })
 
