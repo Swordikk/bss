@@ -1143,12 +1143,12 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddButton({
+--[[Tab:AddButton({
 	Name = "Delete Decorations",
 	Callback = function()
 		game.Workspace.FieldDecos:Destroy()
 		game.Workspace.Decorations.Misc:Destroy()
   	end    
-})
+})]]--
 
 OrionLib:Init()
