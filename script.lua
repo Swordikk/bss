@@ -8,9 +8,6 @@ local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 local Pollen = game:GetService("Players").LocalPlayer.CoreStats.Pollen
 local Capacity = game:GetService("Players").LocalPlayer.CoreStats.Capacity
 
--- Delete Objects --
-game.Workspace.FieldDecos:Destroy()
-
 -- Claim Hive --
 hives = game.Workspace.Honeycombs:GetChildren()
 
@@ -1144,6 +1141,14 @@ local Tab = Window:MakeTab({
 	Name = "Setthings",
 	Icon = "rbxassetid://4483345737",
 	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Delete Decorations",
+	Callback = function()
+		game.Workspace.FieldDecos:Destroy()
+		game.Workspace.Decorations.Misc:Destroy()
+  	end    
 })
 
 OrionLib:Init()
