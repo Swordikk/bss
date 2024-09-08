@@ -308,6 +308,84 @@ Tab:AddToggle({
 				Humanoid.MoveToFinished:Wait()
 				Humanoid:MoveTo(Vector3.new(-328.6700134277344, 65.5, -187.3489990234375))
 				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Sunflower Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-112.17843627929688, 5.163674831390381, 204.1308288574218))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-161.33192443847656, 4.474340438842773, 163.3098602294922))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-208.951294, 1.5, 176.579224))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Pepper Patch" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Rose Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Stump Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Blue Flower Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-115.68903350830078, 5.163674354553223, 253.8612213134765))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-6.037654876708984, 4.474340438842773, 165.76087951660156))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(48.838645935058594, 4.474340438842773, 123.0375747680664))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(146.865021, 2.13494039, 99.3078308))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Bamboo Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Spider Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Mountain Top Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Strawberry Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Cactus Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Coconut Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Mushroom Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-89.7000122, 1.95073581, 111.725006))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Pumpkin Patch" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Clover Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-106.70039367675781, 4.474338531494141, 247.0488891601562))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(60.442283630371094, 4.474340438842773, 190.2958526611328))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid.Jump = true
+				Humanoid:MoveTo(Vector3.new(102.91264343261719, 19.22933578491211, 209.7509765625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid.Jump = true
+				Humanoid:MoveTo(Vector3.new(157.547073, 31.608448, 196.350006))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Pineapple Patch" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+			elseif _G.Selectfield == "Dandelion Field" then
+				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-113.97024536132812, 4.474338531494141, 247.3998565673828))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-29.6986389, 1.5, 221.572845))
+				Humanoid.MoveToFinished:Wait()
 			end
 			wait(0.5)
 			if _G.AutoSplinker == true then
@@ -389,7 +467,7 @@ Tab:AddToggle({
 Tab:AddDropdown({
 	Name = "Select field",
 	Default = "...",
-	Options = {"Pine Tree Forest"},
+	Options = {"Pine Tree Forest", "Pepper Patch", "Rose Field", "Stump Field", "Blue Flower Field", "Bamboo Field", "Spider Field", "Mountain Top Field", "Strawberry Field", "Cactus Field", "Coconut Field", "Mushroom Field", "Pumpkin Patch", "Clover Field", "Pineapple Patch", "Dandelion Field", "Sunflower Field"},
 	Callback = function(Value)
 		_G.Selectfield = Value
 	end    
@@ -529,9 +607,7 @@ Tab:AddDropdown({
 		elseif Option == "Mushroom Field" then
 			HumanoidRootPart.CFrame = CFrame.new(-89.7000122, 1.95073581, 111.725006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Pumpkin Patch" then
-			HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-		elseif Option == "Sunflower Field" then
-			HumanoidRootPart.CFrame = CFrame.new(-208.951294, 1.5, 176.579224, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			HumanoidRootPart.CFrame = CFrame.new(-195.020889282, 68.47433471679688, -182.6038360, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Clover Field" then
 			HumanoidRootPart.CFrame = CFrame.new(157.547073, 31.608448, 196.350006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		elseif Option == "Pineapple Patch" then
