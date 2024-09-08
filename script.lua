@@ -188,7 +188,7 @@ function JumpPower()
 end
 
 function DetectingViciousBee()
-    while _G.DetectingViciousBee == true do
+    while _G.DetectingViciousBee == true do wait(1)
 		local ViciousBee = game:GetService("Workspace").Particles.WTs:FindFirstChild("WaitingThorn")
     	if ViciousBee then
 			OrionLib:MakeNotification({
@@ -203,7 +203,7 @@ function DetectingViciousBee()
 end
 
 function DetectingWindyBee()
-    while _G.DetectingWindyBee == true do
+    while _G.DetectingWindyBee == true do wait(1)
 		local WindyBee = game:GetService("Workspace").NPCBees:FindFirstChild("Windy")
     	if WindyBee then
 			OrionLib:MakeNotification({
@@ -1143,12 +1143,12 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
---[[Tab:AddButton({
+Tab:AddButton({
 	Name = "Delete Decorations",
 	Callback = function()
 		game.Workspace.FieldDecos:Destroy()
 		game.Workspace.Decorations.Misc:Destroy()
   	end    
-})]]--
+})
 
 OrionLib:Init()
