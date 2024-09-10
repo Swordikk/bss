@@ -335,6 +335,11 @@ Tab:AddToggle({
 			elseif _G.Selectfield == "Rose Field" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-223.2859649658203, 4.474340915679932, 283.5403137207031))
+				Humanoid:MoveTo(Vector3.new(-254.56871032714844, 4.474338531494141, 218.63302612304688))
+				Humanoid.Jump = true
+				Humanoid:MoveTo(Vector3.new(-273.3639221191406, 20.424341201782227, 171.46728515625))
+				Humanoid:MoveTo(Vector3.new(-327.459839, 17.5552464, 129.496735))
 			elseif _G.Selectfield == "Stump Field" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
@@ -429,6 +434,24 @@ Tab:AddToggle({
 			elseif _G.Selectfield == "Pineapple Patch" then
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-107.99720764160156, 5.163674354553223, 244.0279693603515))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-2.564068078994751, 4.735403060913086, 174.57998657226562))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(-4.537811279296875, 20.47433853149414, 30.398229598999023))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(74.52862548828125, 20.47433853149414, 6.512970924377441))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(206.4178009033203, 25.747920989990234, -3.259577035903930))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(206.27708435058594, 41.75432586669922, 56.234004974365234))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(227.68496704101562, 41.75433349609375, 54.764892578125))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(231.3961639404297, 68.47433471679688, -92.54380798339844))
+				Humanoid.MoveToFinished:Wait()
+				Humanoid:MoveTo(Vector3.new(256.498108, 66.1299973, -207.479324))
+				Humanoid.MoveToFinished:Wait()
 			elseif _G.Selectfield == "Dandelion Field" then -- + --
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
@@ -500,6 +523,78 @@ Tab:AddToggle({
 						Humanoid:MoveTo(Vector3.new(-283.1990966796875, 20.424341201782227, 156.9462127685547))
 						Humanoid.MoveToFinished:Wait()
 						Humanoid:MoveTo(Vector3.new(-214.80625915527344, 4.7869415283203125, 288.990173339844))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Sunflower Field" then
+						Humanoid:MoveTo(Vector3.new(-169.88076782226562, 4.474339962005615, 164.7401275634765))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-116.50726318359375, 4.474340915679932, 190.2702331542968))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-115.84585571289062, 4.914340496063232, 264.1575927734375))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Pepper Patch" then
+					elseif _G.Selectfield == "Rose Field" then
+						Humanoid:MoveTo(Vector3.new(-271.9185791015625, 20.424341201782227, 163.5341033935547))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-220.20892333984375, 4.474340915679932, 284.4630432128906))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Stump Field" then
+					elseif _G.Selectfield == "Blue Flower Field" then
+						Humanoid:MoveTo(Vector3.new(53.67818069458008, 4.474340438842773, 120.88762664794922))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(21.35944366455078, 4.474340438842773, 171.3778533935547))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-114.4158706665039, 5.163674354553223, 242.7863464355468))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.22875213623047, 5.385427474975586, 272.543212890625))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Bamboo Field" then
+						Humanoid:MoveTo(Vector3.new(47.29024887084961, 20.47433853149414, 1.9132791757583618))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(1.0676368474960327, 20.47433853149414, 37.46464538574219))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-1.1929987668991089, 21.517955780029297, 87.3512191772461))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.60352325439453, 5.163674354553223, 238.4662933349609))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.97125244140625, 5.385427474975586, 272.2838439941406))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Spider Field" then
+						Humanoid:MoveTo(Vector3.new(-85.35550689697266, 20.47433853149414, 46.08818054199219))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-99.20082092285156, 4.474338531494141, 172.4752960205078))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-112.38178253173828, 5.163674354553223, 250.8271179199218))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.33894348144531, 5.385427474975586, 272.59130859375))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Mountain Top Field" then 
+					elseif _G.Selectfield == "Strawberry Field" then
+						Humanoid:MoveTo(Vector3.new(-136.85501098632812, 20.474334716796875, 45.7817878723144))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-107.18277740478516, 5.163674831390381, 165.0779724121093))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.90422058105469, 5.385427474975586, 273.59130859375))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Cactus Field" then
+					elseif _G.Selectfield == "Coconut Field" then
+					elseif _G.Selectfield == "Mushroom Field" then
+						Humanoid:MoveTo(Vector3.new(-109.92216491699219, 4.474340438842773, 169.9686431884765))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-114.03581237792969, 5.385427474975586, 270.7334289550781))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Pumpkin Patch" then
+					elseif _G.Selectfield == "Clover Field" then
+						Humanoid:MoveTo(Vector3.new(14.619853973388672, 4.474339962005615, 201.71937561035156))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.4061279296875, 5.163674354553223, 242.58251953125))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.48867797851562, 5.385427474975586, 273.12939453125))
+						Humanoid.MoveToFinished:Wait()
+					elseif _G.Selectfield == "Pineapple Patch" then
+					elseif _G.Selectfield == "Dandelion Field" then
+						Humanoid:MoveTo(Vector3.new(-117.09505462646484, 5.034340858459473, 246.5732574462890))
+						Humanoid.MoveToFinished:Wait()
+						Humanoid:MoveTo(Vector3.new(-113.9851303100586, 5.196992874145508, 274.4400634765625))
 						Humanoid.MoveToFinished:Wait()
 					end
 					Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
