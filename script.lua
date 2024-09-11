@@ -468,7 +468,6 @@ Tab:AddToggle({
 			end
 			wait(1)
 			while Pollen.Value < Capacity.Value do
-				if Option == true then
 				local tokens = GetService("Workspace").Collectibles:GetChildren()
 				    if #tokens > 0 then
 					for i, v in pairs(tokens) do
@@ -513,7 +512,6 @@ Tab:AddToggle({
                 	end
 				end
 				wait(0.01)
-				end
 			end
 			if _G.AutoConvert == true then
 				if Pollen.Value >= Capacity.Value then
