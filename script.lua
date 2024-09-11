@@ -301,8 +301,8 @@ local Tab = Window:MakeTab({
 Tab:AddToggle({
 	Name = "Auto Farm(end)",
 	Default = false,
-	Callback = function(Value)
-		while Value == true do
+	Callback = function(AF)
+		while AF == true do
 			if _G.Selectfield == "Pine Tree Forest" then -- + --
 				Humanoid:MoveTo(Vector3.new(-113.76736450195312, 5.385427474975586, 271.746337890625))
 				Humanoid.MoveToFinished:Wait()
@@ -467,7 +467,7 @@ Tab:AddToggle({
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(1)
-			while Pollen.Value < Capacity.Value do
+			while Pollen.Value < Capacity.Value and AF == true do
 				local tokens = game:GetService("Workspace").Collectibles:GetChildren()
 				if #tokens > 0 then
 					for i, v in pairs(tokens) do
@@ -599,7 +599,7 @@ Tab:AddToggle({
 					end
 					Humanoid:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.Position)
 					Humanoid.MoveToFinished:Wait()
-					wait(0.1)
+					wait(0.5)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
 					wait(5)
