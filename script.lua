@@ -468,8 +468,9 @@ Tab:AddToggle({
 			end
 			wait(1)
 			while Pollen.Value < Capacity.Value do
+				if Option == true then
 				local tokens = GetService("Workspace").Collectibles:GetChildren()
-				if #tokens > 0 then
+				    if #tokens > 0 then
 					for i, v in pairs(tokens) do
 						if v.BackDecal.Texture == "rbxassetid://1629547638" then
 							Humanoid:MoveTo(v.Position)
@@ -512,6 +513,7 @@ Tab:AddToggle({
                 	end
 				end
 				wait(0.01)
+				end
 			end
 			if _G.AutoConvert == true then
 				if Pollen.Value >= Capacity.Value then
