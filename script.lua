@@ -18,8 +18,6 @@ for i = #hives, 1, -1 do
 end
 
 -- Functions AutoFarm --
-function AutoFarm()
-end
 
 function AutoDig()
 	while _G.AutoDig == true do
@@ -602,7 +600,13 @@ Tab:AddToggle({
 					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
-					wait(5)
+					if _G.AutoConvertBalloon then
+						for i, v in pairs(game.Workspace.Balloons.HiveBalloons:GetChildren()) do
+							if v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text == "🎈 Blessing x".._G.AutoConvertBalloon do
+								while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 10 do wait() end
+							end
+						end
+					end
 				end
 			end
 		end
@@ -643,9 +647,10 @@ Tab:AddToggle({
 	end
 })
 
-Tab:AddToggle({
+Tab:AddTextbox({
 	Name = "Auto Convert Balloon",
-	Default = false,
+	Default = "",
+	TextDisappear = false,
 	Callback = function(Value)
 		_G.AutoConvertBalloon = Value
 	end
@@ -869,7 +874,7 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddToggle({
-	Name = "Auto Claim Wealth Clock",
+	Name = "Auto Claim Auto Wealth Clock",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoClaimAutoWealthClock = Value
