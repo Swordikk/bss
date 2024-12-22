@@ -869,7 +869,7 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddToggle({
-	Name = "Auto Claim Auto Wealth Clock",
+	Name = "Auto Claim Wealth Clock",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoClaimAutoWealthClock = Value
