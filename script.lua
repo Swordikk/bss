@@ -601,11 +601,11 @@ Tab:AddToggle({
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
 					if _G.AutoConvertBalloon then
-						for i, v in pairs(game.Workspace.Balloons.HiveBalloons:GetChildren()) do
+						--[[for i, v in pairs(game.Workspace.Balloons.HiveBalloons:GetChildren()) do
 							if v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text == "🎈 Blessing x".._G.AutoConvertBalloon do
 								while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 10 do wait() end
 							end
-						end
+						end--]]
 					end
 				end
 			end
