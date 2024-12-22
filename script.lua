@@ -472,7 +472,7 @@ Tab:AddToggle({
 						if v.BackDecal.Texture == "rbxassetid://1629547638" then
 							Humanoid:MoveTo(v.Position)
 						elseif
-						(HumanoidRootPart.Position - v.Position).magnitude <= 40 and (
+						(HumanoidRootPart.Position - v.Position).magnitude <= 30 and (
 							v.BackDecal.Texture == "rbxassetid://1442764904" or
 							v.BackDecal.Texture == "rbxassetid://1442863423" or
 							v.BackDecal.Texture == "rbxassetid://1442725244" or
@@ -493,7 +493,7 @@ Tab:AddToggle({
 					local Bubbles = game:GetService("Workspace").Particles:GetChildren()
                 	if #Bubbles > 0 then
                     	for i, v in pairs(Bubbles) do
-                        	if v.Name == "Bubble" then
+                        	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 15 then
                         		Humanoid:MoveTo(v.Position)
                         	end
                     	end
@@ -503,7 +503,7 @@ Tab:AddToggle({
 					local FuzzyBombs = game:GetService("Workspace").Particles:GetChildren()
                 	if #FuzzyBombs > 0 then
                     	for i, v in pairs(FuzzyBombs) do
-                        	if v.Name == "DustBunnyInstance" then
+                        	if v.Name == "DustBunnyInstance" and (HumanoidRootPart.Position - v.Position).magnitude <= 15 then
                         		Humanoid:MoveTo(v.Position)
                         	end
                     	end
