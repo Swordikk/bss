@@ -282,7 +282,7 @@ local Section = Tab:AddSection({
 })
 
 local Section = Tab:AddSection({
-	Name = "     Thanks you for using my script!                        My Discord: swordik_"
+	Name = "     Thanks you for using my script!                       My Discord: swordik_"
 })
 
 local Section = Tab:AddSection({
@@ -493,22 +493,22 @@ Tab:AddToggle({
 					local Bubbles = game:GetService("Workspace").Particles:GetChildren()
                 	if #Bubbles > 0 then
                     	for i, v in pairs(Bubbles) do
-                        	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 15 then
+                        	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 20 then
                         		Humanoid:MoveTo(v.Position)
                         	end
                     	end
                 	end
 				end
-				if _G.FarmFuzzyBombs == true then
+				--[[if _G.FarmFuzzyBombs == true then
 					local FuzzyBombs = game:GetService("Workspace").Particles:GetChildren()
                 	if #FuzzyBombs > 0 then
                     	for i, v in pairs(FuzzyBombs) do
-                        	if v.Name == "DustBunnyInstance" and (HumanoidRootPart.Position - v.Position).magnitude <= 15 then
+                        	if v.Name == "DustBunnyInstance" then
                         		Humanoid:MoveTo(v.Position)
                         	end
                     	end
                 	end
-				end
+				end]]
 				wait(0.01)
 			end
 			if _G.AutoConvert == true then
@@ -600,9 +600,14 @@ Tab:AddToggle({
 					wait(0.1)
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
+					wait(1)
 					if _G.AutoConvertBalloon then
 						for i, v in pairs(game.Workspace.Balloons.HiveBalloons:GetChildren()) do
-							while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 10 and v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text == "🎈 Blessing x".._G.AutoConvertBalloon do wait() end
+							local blessingText = v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text
+							local currentBlessingValue = tonumber(blessingText:match("x(%d+)"))
+
+							while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 18 and _G.AutoConvertBalloon <= currentBlessingValue do wait() end
+							break
 						end
 					end
 				end
