@@ -33,9 +33,9 @@ function AutoFarmSnowFlakes()
         local snowflakes = game:GetService("Workspace").Collectibles:GetChildren()
         if #snowflakes > 0 then
             for i, v in pairs(snowflakes) do
-                if v.BackDecal.Texture == "rbxassetid://6087969886" then
+                if v.BackDecal.Texture == "rbxassetid://6087969886" and v.Transparency == 0 then
                     HumanoidRootPart.CFrame = v.CFrame
-                    wait(1)
+                    wait(0.7)
                 end
             end
         end
@@ -50,7 +50,7 @@ function AutoFarmTickets()
 			for i,v in pairs(tickets) do
             	if v.BackDecal.Texture == "rbxassetid://1674871631" and v.Transparency == 0 then
                 	HumanoidRootPart.CFrame = v.CFrame
-                	wait(1)
+                	wait(0.7)
 				end
 			end
 		end
@@ -1217,7 +1217,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
--- Tab Themes --
+-- Tab Visuals --
 local Tab = Window:MakeTab({
 	Name = "Visuals",
 	Icon = "rbxassetid://3610254229",
