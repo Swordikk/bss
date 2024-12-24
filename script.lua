@@ -24,6 +24,24 @@ for i = #hives, 1, -1 do
 	end 
 end
 
+-- AntiAFK --
+while not game:IsLoaded() do wait() end
+repeat wait() until game.Players.LocalPlayer.Character
+Players = game:GetService("Players")
+local GC = getconnections or get_signal_cons
+if GC then
+	for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
+		if v["Disable"] then v["Disable"](v)
+		elseif v["Disconnect"] then v["Disconnect"](v)
+		end
+	end
+else
+Players.LocalPlayer.Idled:Connect(function()
+	VirtualUser:CaptureController()
+	VirtualUser:ClickButton2(Vector2.new())
+  	end)
+end
+
 -- Functions AutoFarm --
 
 function AutoDig()
@@ -466,6 +484,14 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.AutoConvert = Value
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Equip Honey Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoEquipHoneyMask = Value
 	end
 })
 
@@ -951,31 +977,6 @@ local Tab = Window:MakeTab({
 	Name = "Misc",
 	Icon = "rbxassetid://4483362748",
 	PremiumOnly = false
-})
-
-Tab:AddToggle({
-	Name = "Anti-AFK",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			while not game:IsLoaded() do wait() end
-			repeat wait() until game.Players.LocalPlayer.Character
-			Players = game:GetService("Players")
-			local GC = getconnections or get_signal_cons
-			if GC then
-				for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
-					if v["Disable"] then v["Disable"](v)
-					elseif v["Disconnect"] then v["Disconnect"](v)
-					end
-				end
-			else
-			Players.LocalPlayer.Idled:Connect(function()
-				VirtualUser:CaptureController()
-				VirtualUser:ClickButton2(Vector2.new())
-  				end)
-			end
-		end
-	end
 })
 
 Tab:AddTextbox({
