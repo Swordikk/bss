@@ -406,8 +406,8 @@ Tab:AddToggle({
 							local blessingText = v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text
 							local currentBlessingValue = tonumber(blessingText:match("x(%d+)"))
 							
-							if (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 18 and _G.AutoConvertBalloon <= currentBlessingValue then
-								while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 18 do
+							if (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 20 and _G.AutoConvertBalloon <= currentBlessingValue then
+								while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 20 do
 									wait()
 								end
 							end
