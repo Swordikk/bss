@@ -3,8 +3,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Simulator", HidePremium = false, IntroText = "Script by Swordik for BSS", SaveConfig = true, IntroEnabled = true, ConfigFolder = "Scripts"})
 
 -- Local --
-local Humanoid = game.Players.LocalPlayer.Character.Humanoid
-local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+local Character = game.Players.LocalPlayer.Character
+local Humanoid = Character.Humanoid
+local HumanoidRootPart = Character.HumanoidRootPart
 local Pollen = game:GetService("Players").LocalPlayer.CoreStats.Pollen
 local Capacity = game:GetService("Players").LocalPlayer.CoreStats.Capacity
 
@@ -387,6 +388,45 @@ Tab:AddToggle({
 				end]]
 				wait(0.01)
 			end
+			--[[for i, v in pairs(Character:GetChildren()) do
+				if v.Name == "Diamond Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Diamond Mask"}}
+				elseif v.Name == "Demon Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Demon Mask"}}
+				elseif v.Name == "Fire Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Fire Mask"}}
+				elseif v.Name == "Bubble Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Bubble Mask"}}
+				elseif v.Name == "Gummy Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Gummy Mask"}}
+				elseif v.Name == "Honey Mask" then
+					_G.NowMask = {
+						[1] = "Equip",
+						[2] = {
+							["Category"] = "Accessory",
+							["Type"] = "Honey Mask"}}
+				end
+			end]]
 			if _G.AutoConvert == true then
 				if Pollen.Value >= Capacity.Value then
 					local PathfindingService = game:GetService("PathfindingService")
@@ -398,21 +438,13 @@ Tab:AddToggle({
 						Humanoid.MoveToFinished:Wait()
 					end
 					wait(0.1)
+					if _G.AutoEquipHoneyMask == true then
+						game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
+					end
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
-					wait(1)
-					if _G.AutoConvertBalloon then
-						for _, v in pairs(game.Workspace.Balloons.HiveBalloons:GetChildren()) do
-							local blessingText = v.BalloonBody.GuiAttach.Gui.BlessingBar.TextLabel.Text
-							local currentBlessingValue = tonumber(blessingText:match("x(%d+)"))
-							
-							if (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 20 and _G.AutoConvertBalloon <= currentBlessingValue then
-								while (HumanoidRootPart.Position - v.BalloonBody.Position).magnitude <= 20 do
-									wait()
-								end
-							end
-						end
-					end
+					wait(4)
+					--[[game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(_G.NowMask))]]
 				end
 			end
 		end
