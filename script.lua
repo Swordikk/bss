@@ -200,13 +200,13 @@ end
 -- Function Misc --
 
 function WalkSpeed()
-	while _G.WalkSpeed do task.wait(.00000001)
+	while _G.WalkSpeed do wait()
 	    Humanoid.WalkSpeed = _G.WalkSpeed
     end
 end
 
 function JumpPower()
-	while _G.JumpPower do task.wait(.00000001)
+	while _G.JumpPower do wait()
 	    Humanoid.JumpPower = _G.JumpPower
     end
 end
@@ -341,8 +341,18 @@ Tab:AddToggle({
 			end
 			wait(1)
 			while Pollen.Value < Capacity.Value do
-				local tokens = workspace.Collectibles:GetChildren()
+				local Particles = game:GetService("Workspace").Particles:GetChildren()
+				if _G.FarmPreciseCrosshairs == true then
+					for i, v in pairs(Particles) do
+						if v.Name == "Crosshair" and (_G.Selectfield.Position - v.Position).magnitude <= 75 then
+                    		Humanoid:MoveTo(v.Position)
+							Humanoid.MoveToFinished:Wait()
+            				v:Destroy()
+                    	end
+					end
+				end
 
+				local tokens = workspace.Collectibles:GetChildren()
     			for i, v in pairs(tokens) do
         			if (HumanoidRootPart.Position - v.Position).magnitude <= 80 and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
             			Humanoid:MoveTo(v.Position)
@@ -351,7 +361,7 @@ Tab:AddToggle({
         			end
     			end
 				if _G.FarmBubbles == true then
-                    for i, v in pairs(game:GetService("Workspace").Particles:GetChildren()) do
+                    for i, v in pairs(Particles) do
                     	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 50 then
                     		Humanoid:MoveTo(v.Position)
                     	end
