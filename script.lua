@@ -337,80 +337,25 @@ Tab:AddToggle({
 			end
 			wait(0.5)
 			if _G.AutoSplinker == true then
-				Humanoid.Jump = true
-				wait(0.2)
 				game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerActivesCommand"):FireServer(unpack(AutoSplinker))
 			end
 			wait(1)
 			while Pollen.Value < Capacity.Value do
-				local tokens = game:GetService("Workspace").Collectibles:GetChildren()
-				if #tokens > 0 then
-					for i, v in pairs(tokens) do
-						if
-						(HumanoidRootPart.Position - v.Position).magnitude <= 40 and 
-							v.BackDecal.Texture == "rbxassetid://1629547638"
-						then
-							Humanoid:MoveTo(v.Position)
-						elseif
-						(HumanoidRootPart.Position - v.Position).magnitude <= 20 and
-							((_G.FarmSunflowerSeed == true and v.BackDecal.Texture == "rbxassetid://1952682401") or
-							(_G.FarmStrawberry == true and v.BackDecal.Texture == "rbxassetid://1952740625") or
-							(_G.FarmPineapple == true and v.BackDecal.Texture == "rbxassetid://1952796032") or
-							(_G.FarmBlueberry == true and v.BackDecal.Texture == "rbxassetid://2028453802"))
-						then
-							Humanoid:MoveTo(v.Position)
-						elseif
-						(HumanoidRootPart.Position - v.Position).magnitude <= 20 and (
-							v.BackDecal.Texture == "rbxassetid://1442863423" or
-							v.BackDecal.Texture == "rbxassetid://1442859163" or
-							v.BackDecal.Texture == "rbxassetid://2000457501" or
-							v.BackDecal.Texture == "rbxassetid://1472532912" or
-							v.BackDecal.Texture == "rbxassetid://1472425802" or
-							v.BackDecal.Texture == "rbxassetid://1472491940" or
-							v.BackDecal.Texture == "rbxassetid://1472580249" or
-							v.BackDecal.Texture == "rbxassetid://1442764904" or
-							v.BackDecal.Texture == "rbxassetid://1442764904" or
-							v.BackDecal.Texture == "rbxassetid://1442725244" or
-							v.BackDecal.Texture == "rbxassetid://2499540966" or
-							v.BackDecal.Texture == "rbxassetid://1671281844" or
-							v.BackDecal.Texture == "http://www.roblox.com/asset/?id=4528414666" or
-							v.BackDecal.Texture == "rbxassetid://1104415222" or
-							v.BackDecal.Texture == "http://www.roblox.com/asset/?id=4889322534" or
-							v.BackDecal.Texture == "http://www.roblox.com/asset/?id=4889470194" or
-							v.BackDecal.Texture == "http://www.roblox.com/asset/?id=4519523935" or
-							v.BackDecal.Texture == "rbxassetid://1629649299" or
-							v.BackDecal.Texture == "rbxassetid://1839454544")
-						then
-							Humanoid:MoveTo(v.Position)
-						end
-					end
-				end
-				for i, v in pairs(game:GetService("Workspace").Collectibles:GetChildren()) do
-					if
-					(HumanoidRootPart.Position - v.Position).magnitude <= 40 and
-						((_G.FarmDiamondEgg == true and v.BackDecal.Texture == "rbxassetid://1471850677") or
-						(_G.FarmGoldenEgg == true and v.BackDecal.Texture == "rbxassetid://1471849394") or
-						(_G.FarmStarJelly == true and v.BackDecal.Texture == "rbxassetid://2319943273") or
-						(_G.FarmRoyalJelly == true and v.BackDecal.Texture == "rbxassetid://1471882621") or
-						(_G.FarmGlue == true and v.BackDecal.Texture == "rbxassetid://2504978518") or
-						(_G.FarmEnzymes == true and v.BackDecal.Texture == "rbxassetid://2584584968") or
-						(_G.FarmGlitter == true and v.BackDecal.Texture == "rbxassetid://2542899798") or
-						(_G.FarmTickets == true and v.BackDecal.Texture == "rbxassetid://1674871631") or
-						(_G.FarmRedExtract == true and v.BackDecal.Texture == "rbxassetid://2495935291") or
-						(_G.FarmBlueExtract == true and v.BackDecal.Texture == "rbxassetid://2495936060"))
-					then
-						Humanoid:MoveTo(v.Position)
-					end
-				end
+				local tokens = workspace.Collectibles:GetChildren()
+
+    			for i, v in pairs(tokens) do
+        			if (HumanoidRootPart.Position - v.Position).magnitude <= 80 and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
+            			Humanoid:MoveTo(v.Position)
+            			Humanoid.MoveToFinished:Wait()
+            			v:Destroy()
+        			end
+    			end
 				if _G.FarmBubbles == true then
-					local Bubbles = game:GetService("Workspace").Particles:GetChildren()
-                	if #Bubbles > 0 then
-                    	for i, v in pairs(Bubbles) do
-                        	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 20 then
-                        		Humanoid:MoveTo(v.Position)
-                        	end
+                    for i, v in pairs(game:GetService("Workspace").Particles:GetChildren()) do
+                    	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 50 then
+                    		Humanoid:MoveTo(v.Position)
                     	end
-                	end
+                    end
 				end
 				--[[if _G.FarmFuzzyBombs == true then
 					local FuzzyBombs = game:GetService("Workspace").Particles:GetChildren()
@@ -422,7 +367,7 @@ Tab:AddToggle({
                     	end
                 	end
 				end]]
-				wait(0.01)
+				wait()
 			end
 			--[[for i, v in pairs(Character:GetChildren()) do
 				if v.Name == "Diamond Mask" then
@@ -633,122 +578,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.FarmAnt = Value
-	end
-})
-
-local Section = Tab:AddSection({
-	Name = "Farm Different Tokens"
-})
-
-Tab:AddToggle({
-	Name = "Farm Sunflower Seed",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmSunflowerSeed = Value 
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Strawberry",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmStrawberry = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Pineapple",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmPineapple = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Blueberry",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmBlueberry = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Diamond Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmDiamondEgg = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Golden Egg",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmGoldenEgg = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Star Jelly",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmStarJelly = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Royal Jelly",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmRoyalJelly = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Glue",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmGlue = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Enzymes",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmEnzymes = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Glitter",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmGlitter = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Tickets",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmTickets = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Red Extract",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmRedExtract = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Blue Extract",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmBlueExtract = Value
 	end
 })
 
