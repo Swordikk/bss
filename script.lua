@@ -344,7 +344,7 @@ Tab:AddToggle({
 				local Particles = game:GetService("Workspace").Particles:GetChildren()
 				if _G.FarmPreciseCrosshairs == true then
 					for i, v in pairs(Particles) do
-						if v.Name == "Crosshair" and (_G.Selectfield.Position - v.Position).magnitude <= 75 then
+						if v.Name == "Crosshair" and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
                     		Humanoid:MoveTo(v.Position)
 							Humanoid.MoveToFinished:Wait()
             				v:Destroy()
@@ -362,20 +362,17 @@ Tab:AddToggle({
     			end
 				if _G.FarmBubbles == true then
                     for i, v in pairs(Particles) do
-                    	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 50 then
+                    	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 70 then
                     		Humanoid:MoveTo(v.Position)
                     	end
                     end
 				end
 				--[[if _G.FarmFuzzyBombs == true then
-					local FuzzyBombs = game:GetService("Workspace").Particles:GetChildren()
-                	if #FuzzyBombs > 0 then
-                    	for i, v in pairs(FuzzyBombs) do
-                        	if v.Name == "DustBunnyInstance" then
-                        		Humanoid:MoveTo(v.Position)
-                        	end
+                    for i, v in pairs(Particles) do
+                    	if v.Name == "DustBunnyInstance" and (_G.Selectfield.Position - v.Plane.Position).magnitude <= 70 then
+                    		Humanoid:MoveTo(v.Plane.Position)
                     	end
-                	end
+                    end
 				end]]
 				wait()
 			end
