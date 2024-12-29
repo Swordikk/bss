@@ -87,98 +87,98 @@ end
 function AutoClaimAutoWealthClock()
     while _G.AutoClaimAutoWealthClock == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimBlueFieldBooster()
 	while _G.AutoClaimBlueFieldBooster == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blue Field Booster")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimRedFieldBooster()
 	while _G.AutoClaimRedFieldBooster == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Red Field Booster")
-        task.wait(0.2)
+       	wait(0.2)
     end
 end
 
 function AutoClaimFieldBooster()
     while _G.AutoClaimFieldBooster == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Field Booster")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimCoconutDispenser()
 	while _G.AutoClaimCoconutDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimGlueDispenser()
 	while _G.AutoClaimGlueDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimBlueberryDispenser()
 	while _G.AutoClaimBlueberryDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimStrawberryDispenser()
 	while _G.AutoClaimStrawberryDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimTreatDispenser()
 	while _G.AutoClaimTreatDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimHoneyDispenser()
 	while _G.AutoClaimHoneyDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimFreeAntPassDispenser()
 	while _G.AutoClaimFreeAntPassDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimFreeRoboPassDispenser()
 	while _G.AutoClaimFreeRoboPassDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Robo Pass Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimFreeRoyalJellyDispenser()
 	while _G.AutoClaimFreeRoyalJellyDispenser == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
 function AutoClaimGingerbreadHouse()
 	while _G.AutoClaimGingerbreadHouse == true do
         game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House")
-        task.wait(0.2)
+        wait(0.2)
     end
 end
 
@@ -363,6 +363,15 @@ Tab:AddToggle({
 				end
 
 				local tokens = workspace.Collectibles:GetChildren()
+				for i, v in pairs(tokens) do
+        			if v.BackDecal.Texture == "rbxassetid://1629547638" and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
+            			Humanoid:MoveTo(v.Position)
+            			Humanoid.MoveToFinished:Wait()
+            			v:Destroy()
+						break
+        			end
+    			end
+
     			for i, v in pairs(tokens) do
         			if (HumanoidRootPart.Position - v.Position).magnitude <= 80 and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
             			Humanoid:MoveTo(v.Position)
