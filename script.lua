@@ -344,10 +344,20 @@ Tab:AddToggle({
 				local Particles = game:GetService("Workspace").Particles:GetChildren()
 				if _G.FarmPreciseCrosshairs == true then
 					for i, v in pairs(Particles) do
-						if v.Name == "Crosshair" and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
+						if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
                     		Humanoid:MoveTo(v.Position)
 							Humanoid.MoveToFinished:Wait()
             				v:Destroy()
+							if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
+								Humanoid:MoveTo(v.Position)
+								Humanoid.MoveToFinished:Wait()
+								v:Destroy()
+								if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
+									Humanoid:MoveTo(v.Position)
+									Humanoid.MoveToFinished:Wait()
+									v:Destroy()
+								end
+							end
                     	end
 					end
 				end
