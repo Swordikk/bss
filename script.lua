@@ -4,8 +4,8 @@ local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Sim
 
 -- Local --
 local Character = game.Players.LocalPlayer.Character
-local Humanoid = Character.Humanoid
-local HumanoidRootPart = Character.HumanoidRootPart
+local Humanoid = Character:WaitForChild("Humanoid")
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 local Pollen = game:GetService("Players").LocalPlayer.CoreStats.Pollen
 local Capacity = game:GetService("Players").LocalPlayer.CoreStats.Capacity
 
@@ -221,7 +221,7 @@ function DetectingViciousBee()
 				Image = "rbxassetid://3944668821",
 				Time = 5
 			})
-        	wait(250) -- Ждем 250 секунд
+        	wait(5)
     	end
 	end
 end
@@ -236,7 +236,7 @@ function DetectingWindyBee()
 				Image = "rbxassetid://3944668821",
 				Time = 5
 			})
-        	wait(250) -- Ждем 250 секунд
+        	wait(5)
     	end
 	end
 end
@@ -342,23 +342,14 @@ Tab:AddToggle({
 			wait(1)
 			while Pollen.Value < Capacity.Value do
 				local Particles = game:GetService("Workspace").Particles:GetChildren()
+				local crosshairFound = false
 				if _G.FarmPreciseCrosshairs == true then
-					for i, v in pairs(Particles) do
+					for _, v in pairs(Particles) do
 						if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
-                    		Humanoid:MoveTo(v.Position)
+							Humanoid:MoveTo(v.Position)
 							Humanoid.MoveToFinished:Wait()
-            				v:Destroy()
-							if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
-								Humanoid:MoveTo(v.Position)
-								Humanoid.MoveToFinished:Wait()
-								v:Destroy()
-								if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
-									Humanoid:MoveTo(v.Position)
-									Humanoid.MoveToFinished:Wait()
-									v:Destroy()
-								end
-							end
-                    	end
+							crosshairFound = true
+						end
 					end
 				end
 
@@ -372,68 +363,34 @@ Tab:AddToggle({
         			end
     			end
 
-    			for i, v in pairs(tokens) do
-        			if (HumanoidRootPart.Position - v.Position).magnitude <= 80 and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
-            			Humanoid:MoveTo(v.Position)
-            			Humanoid.MoveToFinished:Wait()
-            			v:Destroy()
-        			end
-    			end
-				if _G.FarmBubbles == true then
-                    for i, v in pairs(Particles) do
-                    	if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 70 then
-                    		Humanoid:MoveTo(v.Position)
-                    	end
-                    end
+				if not crosshairFound then
+					for i, v in pairs(tokens) do
+						if (HumanoidRootPart.Position - v.Position).magnitude <= 80 and (_G.Selectfield.Position - v.Position).magnitude <= 65 then
+							Humanoid:MoveTo(v.Position)
+							Humanoid.MoveToFinished:Wait()
+							v:Destroy()
+						end
+					end
+	
+					if _G.FarmBubbles == true then
+						for i, v in pairs(Particles) do
+							if v.Name == "Bubble" and (HumanoidRootPart.Position - v.Position).magnitude <= 70 then
+								Humanoid:MoveTo(v.Position)
+							end
+						end
+					end
+	
+					if _G.FarmFuzzyBombs == true then
+						for i, v in pairs(Particles) do
+							if v.Name == "DustBunnyInstance" and v:FindFirstChild("Plane") and (_G.Selectfield.Position - v.Plane.Position).magnitude <= 70 then
+								local planePosition = v.Plane.Position
+								Humanoid:MoveTo(planePosition)
+							end
+						end
+					end
 				end
-				--[[if _G.FarmFuzzyBombs == true then
-                    for i, v in pairs(Particles) do
-                    	if v.Name == "DustBunnyInstance" and (_G.Selectfield.Position - v.Plane.Position).magnitude <= 70 then
-                    		Humanoid:MoveTo(v.Plane.Position)
-                    	end
-                    end
-				end]]
 				wait()
 			end
-			--[[for i, v in pairs(Character:GetChildren()) do
-				if v.Name == "Diamond Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Diamond Mask"}}
-				elseif v.Name == "Demon Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Demon Mask"}}
-				elseif v.Name == "Fire Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Fire Mask"}}
-				elseif v.Name == "Bubble Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Bubble Mask"}}
-				elseif v.Name == "Gummy Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Gummy Mask"}}
-				elseif v.Name == "Honey Mask" then
-					_G.NowMask = {
-						[1] = "Equip",
-						[2] = {
-							["Category"] = "Accessory",
-							["Type"] = "Honey Mask"}}
-				end
-			end]]
 			if _G.AutoConvert == true then
 				if Pollen.Value >= Capacity.Value then
 					local PathfindingService = game:GetService("PathfindingService")
@@ -451,7 +408,6 @@ Tab:AddToggle({
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerHiveCommand"):FireServer("ToggleHoneyMaking")
 					while game:GetService("Players").LocalPlayer.CoreStats.Pollen.Value > 0 do wait() end
 					wait(4)
-					--[[game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(_G.NowMask))]]
 				end
 			end
 		end
@@ -596,14 +552,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.FarmUnderClouds = Value
-	end
-})
-
-Tab:AddToggle({
-	Name = "Farm Ant",
-	Default = false,
-	Callback = function(Value)
-		_G.FarmAnt = Value
 	end
 })
 
