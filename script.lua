@@ -182,14 +182,6 @@ function AutoClaimGingerbreadHouse()
     end
 end
 
-function FindAllStickers()
-	if _G.FindAllStickers == true then
-		for i = 1, 400 do
-    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(i)
-		end
-	end
-end
-
 -- Function Combat --
 
 function KillCoconutCrab()
@@ -842,7 +834,7 @@ Tab:AddButton({
 
 Tab:AddButton({
 	Name = "Sprout Summoner",
-	Callback = function(Value)
+	Callback = function()
 		game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Sprout Summoner")
   	end    
 })
@@ -861,7 +853,7 @@ local Section = Tab:AddSection({
 Tab:AddToggle({
 	Name = "Auto Claim Gingerbread House",
 	Default = false,
-	Callback = function()
+	Callback = function(Value)
 		_G.AutoClaimGingerbreadHouse = Value
 		AutoClaimGingerbreadHouse()
 	end    
@@ -888,8 +880,9 @@ Tab:AddToggle({
 Tab:AddButton({
 	Name = "Find All Stickers",
 	Callback = function()
-		_G.FindAllStickers = Value
-		FindAllStickers()
+		for i = 1, 400 do
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(i)
+			end 
   	end
 })
 
