@@ -182,6 +182,14 @@ function AutoClaimGingerbreadHouse()
     end
 end
 
+function FindAllStickers()
+	if _G.FindAllStickers == true then
+		for i = 1, 400 do
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(i)
+		end
+	end
+end
+
 -- Function Combat --
 
 function KillCoconutCrab()
@@ -877,24 +885,12 @@ Tab:AddToggle({
 	end
 })
 
-Tab:AddToggle({
-	Name = "Find all Stickers",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(101)
-            task.wait(0.1)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(102)
-            task.wait(0.1)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(103)
-            task.wait(0.1)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(104)
-            task.wait(0.1)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(105)
-            task.wait(0.1)
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("HiddenStickerEvent"):FireServer(106) -- ДОДЕЛАТЬ!
-		end
-	end
+Tab:AddButton({
+	Name = "Find All Stickers",
+	Callback = function()
+		_G.FindAllStickers = Value
+		FindAllStickers()
+  	end
 })
 
 -- Tab Combat --
