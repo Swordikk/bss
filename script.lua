@@ -345,7 +345,7 @@ Tab:AddToggle({
 				local crosshairFound = false
 				if _G.FarmPreciseCrosshairs == true then
 					for _, v in pairs(Particles) do
-						if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) and (_G.Selectfield.Position - v.Position).magnitude <= 70 then
+						if v.Name == "Crosshair" and v.Color == Color3.new(144/255, 119/255, 87/255) then
 							Humanoid:MoveTo(v.Position)
 							Humanoid.MoveToFinished:Wait()
 							crosshairFound = true
