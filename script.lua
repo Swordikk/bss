@@ -401,7 +401,7 @@ Tab:AddToggle({
 						Humanoid:MoveTo(waypoint.Position)
 						Humanoid.MoveToFinished:Wait()
 					end
-					wait(0.1)
+					wait(1)
 					if _G.AutoEquipHoneyMask == true then
 						game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemPackageEvent"):InvokeServer(unpack(HoneyMask))
 					end
