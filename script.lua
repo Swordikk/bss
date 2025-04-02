@@ -1,4 +1,4 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 
 local Window = OrionLib:MakeWindow({Name = "Script by Swordik | ⚡Bee Swarm Simulator", HidePremium = false, IntroText = "Script by Swordik for BSS", SaveConfig = true, IntroEnabled = true, ConfigFolder = "Scripts"})
 
